@@ -1,0 +1,39 @@
+Resumen de Entidades y Relaciones Principales
+
+1. Facultad
+- idFacultad, facultad, idDirector, idSecretarioAcademico, micrositio
+- Relaciones: tiene muchas Carreras, Academias y Docentes
+
+2. Carrera
+- idCarrera, nombreCarrera, planEstudios, idCoordinador, idFacultad (FK)
+- Relaciones: pertenece a una Facultad, tiene muchas Materias y Competencias Específicas
+
+3. Academia
+- idAcademia, nombreAcademia, idFacultad (FK), idPresidente, idSecretario
+- Relaciones: pertenece a una Facultad, tiene muchas Materias
+
+4. Materia
+- idMateria, nombreMateria, horas, etc.
+- Relaciones: pertenece a una Carrera, puede estar en varias Academias
+
+5. Docente
+- idDocente, prefijo, nombre, apellidos, correo
+- Relaciones: puede estar en varias Facultades, Academias y Materias (relaciones N:M)
+
+6. Acceso
+- idAcceso, idDocente (FK), correo, pass, rol, estado
+
+7. CompetenciaGenérica / CompetenciaEspecífica
+- idGenerica, competencia_generica
+- idEspecifica, competencia_especifica, idCarrera (FK)
+
+8. Subcompetencia, Criterio, Evidencia, Perfil, Material, Bibliografía, Evaluación
+- Entidades relacionadas a la planeación y evaluación de la unidad de aprendizaje (PUA).
+
+Relaciones clave:
+- Una Facultad tiene muchas Carreras y Academias.
+- Una Carrera pertenece a una Facultad y tiene muchas Materias.
+- Una Academia pertenece a una Facultad y agrupa Materias.
+- Un Docente puede estar asociado a varias Facultades, Academias y Materias (tablas intermedias).
+- Acceso gestiona la autenticación de Docentes.
+- Las competencias, subcompetencias, criterios, evidencias, perfiles, materiales y bibliografía están ligadas a la planeación de la unidad de aprendizaje (PUA).

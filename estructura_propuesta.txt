@@ -1,0 +1,51 @@
+# Propuesta de Estructura de Carpetas y Componentes
+
+## 1. Backend (Laravel)
+
+/backend
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/         # Controladores para cada entidad principal
+│   │   └── Middleware/
+│   ├── Models/                 # Modelos Eloquent para cada entidad (Facultad, Carrera, etc.)
+│   └── ...
+├── database/
+│   ├── migrations/             # Migraciones para crear tablas
+│   ├── seeders/                # Datos de ejemplo
+│   └── factories/
+├── routes/
+│   └── api.php                 # Definición de rutas RESTful
+├── config/
+├── tests/
+└── ...
+
+- Cada entidad (Facultad, Carrera, Docente, Materia, etc.) tendrá su modelo, migración, controlador y rutas API.
+- Se implementarán controladores tipo Resource para CRUD.
+- Autenticación moderna (Laravel Sanctum o Passport).
+
+## 2. Frontend (React)
+
+/frontend
+├── public/
+├── src/
+│   ├── components/             # Componentes reutilizables (Botones, Formularios, etc.)
+│   ├── pages/                  # Vistas principales (por cada pantalla .vm/.html)
+│   ├── services/               # Lógica para consumir la API REST (axios/fetch)
+│   ├── hooks/                  # Custom hooks para lógica de negocio
+│   ├── context/                # Contextos para manejo de estado global (ej. usuario)
+│   ├── utils/                  # Utilidades y helpers
+│   ├── App.js
+│   └── index.js
+├── package.json
+└── ...
+
+- Cada vista del sistema original será un componente o página en React.
+- Se usará React Router para navegación.
+- Manejo de estado con Context API o Redux (según complejidad).
+- Estilos con CSS Modules, Styled Components o librerías como Bootstrap.
+
+## 3. Comunicación
+- El frontend se comunica con el backend exclusivamente vía API REST (JSON).
+- El backend gestiona la lógica de negocio, autenticación y acceso a la base de datos MySQL.
+
+¿Deseas que genere los comandos para crear la estructura base de Laravel y React en carpetas `/backend` y `/frontend`?
