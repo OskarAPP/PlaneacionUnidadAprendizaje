@@ -1,0 +1,221 @@
+<meta charset="UTF-8">
+<nav class="navbar navbar-default navbar-fixed-top"
+	role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a href="/PUA/index.html"><img class="" src="/PUA/images/uac_pua.png" id="img_logo"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      
+      
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp;Docentes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaDocentes" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Docentes Registrados</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="docentes" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="docenteCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+				</form>	            
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Carreras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaCarreras" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Carreras Registradas</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regCarrera" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="carreraCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Materias <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaMaterias" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Materias Registradas</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regMateria" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="materiaCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span>&nbsp;Academias <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaAcademias" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Academias Registradas</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regAcademia" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block" ><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="academiaCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-education"></span>&nbsp;Facultad <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regFacultad" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+          <!--  <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post">
+		            <input type="hidden" value="regAcademia" name="tipoAccion">
+		            <input type="submit" class="btn btn-default" value="Formulario de Academias">
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post">
+		            <input type="hidden" value="academiaCSV" name="tipoAccion">
+		            <input type="submit" class="btn btn-default" value="Importación por CSV.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp">
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>-->
+          </ul>
+        </li>
+        
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Compe. Genéricas <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaGenerica" name="tipoAccion">
+		            <button type="submit"class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Competencias Registradas</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regGenerica" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="genericaCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Compe. Específicas <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="listaEspecifica" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list"></span>&nbsp;Competencias Registradas</button>
+	            </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="regEspecifica" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Formulario de Registro</button>
+	            </form>
+            </li>
+            <li>
+            	<form action="Administrador.action" method="post" class="form-group">
+		            <input type="hidden" value="especificaCSV" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-import"></span>&nbsp;Importación por CSV</button>
+		        </form>    
+	        </li>
+          	<li role="separator" class="divider"></li>
+          </ul>
+        </li>
+        
+      </ul>
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+      	
+      	<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp;Mi Cuenta <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="panelAcceso.vm" class="btn btn-block"><span class="glyphicon glyphicon-home"></span>&nbsp;Inicio</a></li>
+          <li><a href="Administrador.action" class="btn btn-block"><span class="glyphicon glyphicon-user"></span>&nbsp;Perfil</a></li>
+            <li><form action="Administrador.action" method="post">
+		            <input type="hidden" value="regFacultad" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-lock"></span>&nbsp;Contraseña</button>
+	            </form>
+            </li>
+            <li><form action="Administrador.action" method="post">
+		            <input type="hidden" value="regFacultad" name="tipoAccion">
+		            <button type="submit" class="form-control btn btn-block"><span class="glyphicon glyphicon-cog"></span>&nbsp;Configuración</button>
+	            </form>
+            </li>
+          	<li><a href="ProcesarLogout.action" class="btn btn-block"><span class="	glyphicon glyphicon-log-out"></span>&nbsp;Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

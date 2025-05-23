@@ -1,0 +1,32 @@
+#set($contador = 1)
+#foreach($carreraDTO in $listaCarrera)
+    	<tr>
+                          <th scope="row">$contador</th>
+	                      <td>
+							  <button type="button" class="btn btn-danger" data-toggle="button" 
+								 onclick="eliminarCarrera($carreraDTO.idCarrera)" aria-pressed="false">Eliminar
+							  </button>
+	                       </td>
+	                       <td>
+							  <button type="button" class="btn btn-success" data-toggle="button" 
+								 onclick="listaCarrerasMaterias($carreraDTO.idCarrera , '$carreraDTO.nombreCarrera')" aria-pressed="false">Asignar Materia
+							  </button>
+	                       </td>
+	                       <td contenteditable="true" id="nombre$carreraDTO.idCarrera"onblur="actualizarCarrera($carreraDTO.idCarrera)">$carreraDTO.nombreCarrera</td>
+                          <td>
+                          	<select class="btn btn-default" name="carreraDTO.idFacultad" id="facultad$carreraDTO.idCarrera"
+	                         onchange="actualizarCarrera($carreraDTO.idCarrera)">
+	                         <option value="0">Seleccione una facultad...</option>
+	            					#foreach($facultadDTO in $listaFacultad)
+	            						<option value=$facultadDTO.idFacultad
+	            						#if($facultadDTO.idFacultad==$carreraDTO.idFacultad) selected
+	            						#end
+	            						>$facultadDTO.facultad</option>
+	            					#end
+	            				</select>
+                          </td>
+                          <td contenteditable="true" id="plan$carreraDTO.idCarrera"onblur="actualizarCarrera($carreraDTO.idCarrera)">$carreraDTO.planEstudios</td>
+        </tr>
+        #set($contador = $contador+1)
+                          #end
+                          

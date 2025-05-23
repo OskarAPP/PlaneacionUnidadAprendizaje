@@ -1,0 +1,4 @@
+<option value="0">Seleccione una carrera...</option>
+#foreach($carreraDTO in $listaCarrera)	
+    <option value=$carreraDTO.idCarrera>$carreraDTO.nombreCarrera ($carreraDTO.planEstudios)</option>
+#end

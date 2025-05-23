@@ -1,0 +1,96 @@
+#set($contador = 1)
+#foreach($materiaDTO in $listaMateria)
+    	<tr>
+                          <th scope="row">$contador</th>
+	                      <td>
+							  <button type="button" class="btn btn-danger" data-toggle="button" 
+								 onclick="eliminarMateria($materiaDTO.idMateria)">Eliminar
+							  </button>
+	                       </td>
+	                       <td contenteditable="true" id="nombre$materiaDTO.idMateria"onblur="actualizarMateria($materiaDTO.idMateria)">$materiaDTO.nombreMateria</td>
+                          <td>
+                          	<select class="btn btn-default" name="materiaDTO.idArea" id="area$materiaDTO.idMateria"
+	                         onchange="actualizarMateria($materiaDTO.idMateria)">
+	                         <option value="0">Seleccione un area..</option>
+	            					#foreach($areaDTO in $listaArea)
+	            						<option value=$areaDTO.idArea
+	            						#if($areaDTO.idArea==$materiaDTO.idArea) selected
+	            						#end
+	            						>$areaDTO.area</option>
+	            					#end
+	            				</select>
+                          </td>
+                           <td>
+                          	<select class="btn btn-default" name="materiaDTO.idNucleo" id="nucleo$materiaDTO.idMateria"
+	                         onchange="actualizarMateria($materiaDTO.idMateria)">
+	                         <option value="0">Seleccione una nucleo...</option>
+	            					#foreach($nucleoDTO in $listaNucleo)
+	            						<option value=$nucleoDTO.idNucleo
+	            						#if($nucleoDTO.idNucleo==$materiaDTO.idNucleo) selected
+	            						#end
+	            						>$nucleoDTO.nucleo</option>
+	            					#end
+	            				</select>
+                          </td>
+                          
+                          <td>
+                          	<select class="btn btn-default" name="materiaDTO.idTipo" id="tipo$materiaDTO.idMateria"
+	                         onchange="actualizarMateria($materiaDTO.idMateria)">
+	                         <option value="0">Seleccione un tipo...</option>
+	            					#foreach($tipoDTO in $listaTipo)
+	            						<option value=$tipoDTO.idTipo
+	            						#if($tipoDTO.idTipo==$materiaDTO.idTipo) selected
+	            						#end
+	            						>$tipoDTO.tipo</option>
+	            					#end
+	            				</select>
+                          </td>
+                          <td>
+                          	<select class="btn btn-default" name="materiaDTO.idTipo" id="art$materiaDTO.idMateria"
+	                         onchange="actualizarMateria($materiaDTO.idMateria)">
+            						#if($materiaDTO.art57=="si")
+	            						<option value="SI" selected>SI</option>
+	            						<option value="NO">NO</option>
+            						#end
+            						#if($materiaDTO.art57=="no")
+	            						<option value="SI">SI</option>
+	            						<option value="NO" selected>NO</option>
+            						#end
+	            				</select>
+                          </td>
+                          <td>
+                          	<select class="btn btn-default" name="materiaDTO.idCarrera" id="academia$materiaDTO.idMateria"
+	                         onchange="cambiarAcademia($materiaDTO.idMateria)">
+	                         <option value="0">Seleccione una academia...</option>
+	            					#foreach($academiaDTO in $listaAcademia)
+	            					
+	            						<option value=$academiaDTO.idAcademia
+	            						#if($academiaDTO.idAcademia==$materiaDTO.idCarrera) selected
+	            						#end
+	            						>$academiaDTO.nombreAcademia</option>
+	            					#end
+	            				</select>
+                          </td>
+                          <td contenteditable="true" id="hp$materiaDTO.idMateria"onblur="actualizarMateria($materiaDTO.idMateria)">$materiaDTO.horasPracticas</td>
+                          <td contenteditable="true" id="hte$materiaDTO.idMateria"onblur="actualizarMateria($materiaDTO.idMateria)">$materiaDTO.horasTeoricas</td>
+                          <td contenteditable="true" id="ht$materiaDTO.idMateria"onblur="actualizarMateria($materiaDTO.idMateria)">$materiaDTO.horasTotales</td>
+                          <td contenteditable="true" id="ct$materiaDTO.idMateria"onblur="actualizarMateria($materiaDTO.idMateria)">$materiaDTO.creditosTotales</td>
+        </tr>
+        #set($contador = $contador+1)
+                          #end
+                          
+                          <tr>
+	                              <th></th>
+	                              <th></th>
+	                              <th><span style="color:white;">________________________________</span></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                            </tr>

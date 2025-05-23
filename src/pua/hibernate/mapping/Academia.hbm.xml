@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Academia" table="academia" catalog="pua" optimistic-lock="version">
+        <id name="idAcademia" type="java.lang.Integer">
+            <column name="id_academia" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="facultad" class="pua.hibernate.Facultad" fetch="select">
+            <column name="id_facultad" />
+        </many-to-one>
+        <property name="nombreAcademia" type="string">
+            <column name="nombre_academia" length="250" />
+        </property>
+        <property name="idPresidente" type="java.lang.Integer">
+            <column name="id_presidente" unique="true" />
+        </property>
+        <property name="idSecretario" type="java.lang.Integer">
+            <column name="id_secretario" unique="true" />
+        </property>
+        <set name="materias" table="academia_materia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_academia" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Materia">
+                <column name="id_materia" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.PuaVersion" table="pua_version" catalog="pua" optimistic-lock="version">
+         <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <many-to-one name="pua" class="pua.hibernate.Pua" fetch="select">
+            <column name="id_Pua" not-null="true" />
+        </many-to-one>
+        <property name="pua_1" type="binary">
+            <column name="pua" />
+        </property>
+        <property name="materia" type="string">
+            <column name="materia" length="100" not-null="true" />
+        </property>
+        <property name="planEstudio" type="int">
+            <column name="planEstudio" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Tema" table="tema" catalog="pua" optimistic-lock="version">
+        <id name="idTema" type="java.lang.Integer">
+            <column name="id_tema" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subcompetencia" class="pua.hibernate.Subcompetencia" fetch="select">
+            <column name="id_subcompetencia" />
+        </many-to-one>
+        <property name="tema" type="string">
+            <column name="tema" length="250" />
+        </property>
+        <property name="numeroTema" type="java.lang.Integer">
+            <column name="numero_tema" />
+        </property>
+        <set name="subtemas" table="subtema" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_tema" />
+            </key>
+            <one-to-many class="pua.hibernate.Subtema" />
+        </set>
+    </class>
+</hibernate-mapping>

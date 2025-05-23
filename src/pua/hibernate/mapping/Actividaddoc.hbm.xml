@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Actividaddoc" table="actividaddoc" catalog="pua" optimistic-lock="version">
+        <id name="idActividadDocente" type="java.lang.Integer">
+            <column name="id_actividad_docente" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subcompetencia" class="pua.hibernate.Subcompetencia" fetch="select">
+            <column name="id_subcompetencia" />
+        </many-to-one>
+        <property name="actividadDocente" type="string">
+            <column name="actividad_docente" length="65535" />
+        </property>
+        <property name="rolActividad" type="string">
+            <column name="rol_actividad" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

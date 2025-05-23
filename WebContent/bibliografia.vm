@@ -1,0 +1,15 @@
+<div class="list-group anima">
+	#foreach($libroDTO in $listaBibliografia)
+	<div class="list-group-item">
+		<span class="badge">$libroDTO.tipoBibliografia</span>
+		<h5 class="list-group-item-heading">$libroDTO.libro</h5>
+		<p class="list-group-item-text">
+			$libroDTO.autorPrincipal, 
+			<em>$libroDTO.editorial</em>
+			<button class="close" onclick="eliminarBibliografia($libroDTO.idLibro)">&times;</span></button>
+		</p>
+		
+	</div>	
+
+	#end
+</div>

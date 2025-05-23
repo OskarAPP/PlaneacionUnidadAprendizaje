@@ -1,0 +1,8 @@
+<ul class="list-group anima">
+	#foreach($ambienteDTO in $listaAmbientesSubcompetencia)
+		<li class="list-group-item">
+			<button class="close" onclick="eliminarAmbiente($ambienteDTO.idSubcompetencia, $ambienteDTO.idAmbiente)">&times;</span></button>
+			$ambienteDTO.ambiente
+		</li>
+	#end
+</ul>

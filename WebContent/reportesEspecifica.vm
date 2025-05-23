@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido</title>
+<link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/select2.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="shortcut icon" href="images/uac.png">
+	
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/select2.min.js" type="text/javascript"></script>
+	<script src="js/funcionesCRUD.js" type="text/javascript"></script>
+	<script src="js/funcionesGUI.js" type="text/javascript"></script>
+	
+</head>
+
+<body>
+<div id="containerNav" class=""></div><br><br>
+	<div class="container" id="containerPrincipal">
+		<h2>Graficar Competencias Especificas</h2>
+		<div class="panel panel-default animated">
+			<div class="panel-heading" >
+				<h3 class="panel-title text-center">Graficar por Carrera</h3>
+	        </div>
+			<div class="panel-body">
+				<div class="row">
+	           		<div class="col-md-4">
+	            		<div class="form-group">
+	            			<label for="facultad">Facultad:</label>
+	            			<select class="form-control" name="facultadDTO.idFacultad" id="facultad" onchange="obtenerCarreras()">
+	            				#foreach($facultadDTO in $listaFacultad)
+	            					<option value=$facultadDTO.idFacultad>$facultadDTO.facultad</option>
+	            				#end
+	            			</select>
+	            		</div>
+	            	</div>
+	            	
+	            	<div class="col-md-4">
+	            		<div class="form-group">
+	            			<label for="carreras">Carrera:</label>
+	            			<select class="form-control" name="carreraDTO.nombreCarrera" id="carreras" onchange="graficarPorEspecificas()">
+	            				#foreach($carreraDTO in $listaCarrera)
+	            					<option value=$carreraDTO.idCarrera>$carreraDTO.nombreCarrera</option>
+	            				#end
+	            			</select>
+	            		</div>
+	            	</div>
+	           
+	           </div> <!--aqui cierra row-->
+	           <br>
+	           	<div class="row" id="graficaEspecificaResultados"></div>
+				</div> <!--aqui cierra row-->
+				
+			</div> <!--aqui cierra panel body-->
+		</div> <!--aqui cierra panel animated-->
+	    			
+	</div>      
+</div>
+	
+</body>
+
+</html>

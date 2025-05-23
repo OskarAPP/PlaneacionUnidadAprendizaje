@@ -1,0 +1,14 @@
+#set($contador = 1)
+#foreach($genericaDTO in $listaGenerica)
+    	<tr>
+                          <th scope="row">$contador</th>
+	                      <td>
+							  <button type="button" class="btn btn-danger" data-toggle="button" 
+								 onclick="eliminarGenerica($genericaDTO.idGenerica)" aria-pressed="false">Eliminar
+							  </button>
+	                       </td>
+	                       <td contenteditable="true" id="nombre$genericaDTO.idGenerica"onblur="actualizarGenerica($genericaDTO.idGenerica)">$genericaDTO.nombreGenerica</td>
+        </tr>
+        #set($contador = $contador+1)
+                          #end
+                          

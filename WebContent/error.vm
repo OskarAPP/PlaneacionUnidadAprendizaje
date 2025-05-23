@@ -1,0 +1,4 @@
+<h1> Lo sentimos </h1>
+<h2> Ha ocurrido un error por favor comunicate con el administrador</h2>
+
+<h3> #if ($mensaje) $mensaje #end </h3>

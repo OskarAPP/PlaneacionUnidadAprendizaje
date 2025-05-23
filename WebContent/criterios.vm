@@ -1,0 +1,34 @@
+<ul class="list-group anima">
+	#foreach($criterioDTO in $listaCriterios) 
+		<li class="list-group-item">
+			$criterioDTO.criterio
+			<button class="close" onclick="eliminarCriterio($criterioDTO.idCriterio, $criterioDTO.idSubcompetencia)">&times;</span></button>
+		</li>
+	#end
+</ul>
+
+<!--MODAL ...Nuevo criterio-->
+
+<div class="modal fade" id="modal-agregarc" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-label="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Criterios de evaluación...</h4>
+			</div>
+			<div class="modal-body">
+		    	<div class="form-group">
+					<label for="criterio">Nuevo Criterio:</label>
+					<textarea class="form-control popovers" name="criterioDTO.criterio" id="criterio" onfocus="popovers()"></textarea>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	            <button type="button" id="btnAgregarCriterio" class="btn btn-primary" onclick="agregarCriterio(this.value)">Agregar</button>
+			</div>
+		</div>
+	</div>
+</div>

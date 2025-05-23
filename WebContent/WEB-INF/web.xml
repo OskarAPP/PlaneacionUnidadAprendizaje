@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>PUA</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+<!-- CONFIGURANDO STRUTS2 -->
+  <filter>
+    <filter-name>struts</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>struts</filter-name>
+    <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+    <filter-name>struts</filter-name>
+    <url-pattern>/struts/*</url-pattern>
+  </filter-mapping>
+
+<!-- CONFIGURANDO VELOCITY -->
+
+  <servlet>
+    <servlet-name>velocity</servlet-name>
+    <servlet-class>
+    	org.apache.velocity.tools.view.servlet.VelocityViewServlet
+  	</servlet-class>  
+  </servlet>  
+  
+  <servlet-mapping>
+    <servlet-name>velocity</servlet-name>
+    <url-pattern>*.vm</url-pattern>
+  </servlet-mapping>  
+ 
+ <!-- CONFIGURANDO PARAMETROS DE CONTEXTO -->
+ 
+  <context-param>
+  	<param-name>TIPO</param-name>
+  	<param-value>1</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>DRIVER</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+   <context-param>
+  	<param-name>IP</param-name>
+  	<param-value>127.0.0.1</param-value>
+  </context-param>
+  
+   <context-param>
+  	<param-name>BD</param-name>
+  	<param-value>pua</param-value>
+  </context-param>
+  
+   <context-param>
+  	<param-name>USUARIO</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>PASS</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+</web-app>

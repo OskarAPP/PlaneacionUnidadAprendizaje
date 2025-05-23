@@ -1,0 +1,81 @@
+body {
+	background-color: #f5f6f7;
+	
+}
+
+.menu-principal {
+	background-color: rgba(255,255,255,0.3);
+	border-radius: 10px;
+	color: #666666;
+	margin-top: 200px;
+	padding: 20px;
+}
+
+.btns-menus {
+	display: inline-block;
+	margin-top: 40px;
+}
+
+#img_logo {
+	width: 149px;
+	height: 50px;
+}
+
+.form-control-my {
+	border: none;
+	background-color: transparent;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+#content {
+	display:none;
+}
+
+#containerPrincipal {
+	margin-top: 50px;
+} 
+
+footer {
+	background-color: #666666;
+	padding: 10px;
+}
+
+#logo_fdi {
+	height:60px;
+	width: 60px;
+}
+
+#ponderacionRest {
+	visibility: hidden;
+}
+
+.msj-box-error {
+	background-color: #ff6666;
+	border-color: red;
+	/*border: thin;
+	border-radius: 7px;*/
+	color: #f3f3f3;
+	/*height: auto;
+	padding: 15px;
+	width: auto;*/
+}
+
+.msj-box-success {
+	background-color: #8ae234;
+	border-color: #4e9a06;
+	/*border: thin;
+	border-radius: 7px;*/
+	color: #375f04;
+	/*height: auto;
+	padding: 15px;
+	width: auto;*/
+}
+
+.anima {
+  	animation-name: fadeInDown;
+  	animation-duration: 0.3s;
+}
+

@@ -1,0 +1,8 @@
+<div class="list-group anima">
+	#foreach($bibliografiaDTO in $listaBibliografiaSub)
+	<div class="list-group-item">
+		$bibliografiaDTO.libro
+		<button class="close" onclick="eliminarBibliografiaSub($bibliografiaDTO.idSubcompetencia, $bibliografiaDTO.idLibro)">&times;</span></button>
+	</div>	
+	#end
+</div>

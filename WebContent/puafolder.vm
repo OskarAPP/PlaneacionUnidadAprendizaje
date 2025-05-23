@@ -1,0 +1,722 @@
+<div class="panel panel-default anima">
+  <div class="panel-heading">
+    <h3 class="panel-title">Datos del PUA</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nombreMateriainfo">Unidad de aprendizaje:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.nombreMateria" name="nombreMateriainfo" id="nombreMateriainfo">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="creditosMateriaInfo">Creditos:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.creditosTotales" name="creditosMateriaInfo" id="creditosMateriaInfo">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="horasTotalesInfo">Horas totales:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.horasTotales" name="horasTotalesInfo" id="horasTotalesInfo">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="horasTeoricasinfo">Horas teoricas:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.horasTeoricas" name="horasTeoricasinfo" id="horasTeoricasinfo">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="horasPracticasInfo">Horas practicas:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.horasPracticas" name="horasPracticasInfo" id="horasPracticasInfo">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="areaInfo">Area:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.area" name="areaInfo" id="areaInfo">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="nucleoInfo">Núcleo:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.nucleo" name="nucleoInfo" id="nucleoInfo">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="tipoInfo">Tipo:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.tipo" name="tipoInfo" id="tipoInfo">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="art57Info">Art. 57 RGA:</label>
+          <input type="text" readonly class="form-control"  value="$materiaDTO.art57" name="art57Info" id="art57Info">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="art57Info">Plan de Estudio:</label>
+          <input type="hidden" class="form-control"  value=#if($puaDTO.idPua) '$puaDTO.idPua' #else '0' #end name="puaDTO.idPua" id="idPua">
+          <input type="text" readonly class="form-control"  value=#if($carreraDTO.planEstudios) '$carreraDTO.planEstudios' #else '0' #end name="carreraDTO.planEstudios" id="planEstudio">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mensaje"></div>
+
+<div class="panel-group anima" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#competencias" onclick="obtenerGenericasPua()">Competencias del Perfil de Egreso</a>
+      </h4>
+    </div>
+    <div id="competencias" class="panel-collapse collapse">
+      <div class="panel-body">
+      	<ul class="nav nav-tabs nav-justified" role="tablist">
+      		<li class="active" role="presentation">
+      			<a href="#tabgenericas" aria-controls="tabgenericas" role="tab" data-toggle="tab" onclick="obtenerGenericasPua()">
+      				Genéricas
+      			</a>
+      		</li>
+      		
+      		<li role="presentation">
+      			<a href="#tabespecificas" aria-controls="tabespecificas" role="tab" data-toggle="tab" onclick="obtenerEspecificasPua()">
+      				Específicas
+      			</a>
+      		</li>
+      		
+      		<li role="presentation">
+      			<a href="#tabformacionyunidad" aria-controls="tabformacionyunidad" role="tab" data-toggle="tab">
+      				Competencias de Formacíon y Unidad
+      			</a>
+      		</li>
+      	</ul>
+      	
+      	<div class="tab-content">
+      		<div role="tabpanel" class="tab-pane fade in active" id="tabgenericas">
+      			<br>
+      			<div class="row">
+		          <div class="col-md-6">
+		            #foreach($genericaDTO in $listaGenerica)
+		              <div class="input-group">
+		                <span class="input-group-addon">
+		                  	<input type="checkbox" class="genericas" name="genericaDTO.idGenerica" aria-label="..." value="$genericaDTO.idGenerica">
+		                </span>
+		                <input type="text" readonly class="form-control" aria-label="..." value="$genericaDTO.nombreGenerica">
+		              </div>
+		            #end
+		          </div>
+		
+		          <div class="col-md-1">
+		             <button type="button" class="btn btn-primary" onclick="agregarGenericaPua()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+		          </div>
+		
+		          <div class="col-md-5">
+		            <div id="genericas_pua">
+		
+		            </div>
+		          </div>
+		        </div>
+      		</div>
+      		
+      		<div role="tabpanel" class="tab-pane fade in" id="tabespecificas">
+      			<br>
+      			<div class="row">
+		          <div class="col-md-5">
+		            #foreach($especificaDTO in $listaEspecifica)
+		              <div class="input-group">
+		                <span class="input-group-addon">
+		                <input type="checkbox" aria-label="..." class="especificas" name="especificaDTO.idEspecifica" value="$especificaDTO.idEspecifica">
+		                </span>
+		                <input type="text" readonly class="form-control" aria-label="..." value="$especificaDTO.perfilEspecifica">
+		              </div>
+		            #end
+		          </div>
+
+		          <div class="col-md-1">
+		              <button type="button" class="btn btn-primary" onclick="agregarEspecificaPua()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+		          </div>
+		
+		          <div class="col-md-6">
+		            <div id="especificas_pua">
+		
+		            </div>
+		          </div>
+		        </div>
+      		</div>
+      		
+      		<div role="tabpanel" class="tab-pane fade in" id="tabformacionyunidad">
+      			<br>
+      			<div class="row">
+		          <div class="col-md-12">
+		            <div class="form-group">
+		              <label for="competenciaFormacion">Competencias del área de formación</label>
+		              <textarea class="form-control popovers" name="puaDTO.competenciaFormacion" id="competenciaFormacion" onfocus="popovers() "></textarea>
+		            </div>
+		            <div class="form-group">
+		              <label for="competenciaUda">Competencia de Unidad de Aprendizaje</label>
+		              <textarea class="form-control popovers" name="puaDTO.competenciaUda" id="competenciaUda" onfocus="popovers()"></textarea>
+		            </div>
+		          </div>
+        		</div>
+
+		        <div class="row">
+		          <div class="col-md-12">
+		            <button type="button" class="btn btn-primary" id="btnGuardarCompetenciasPua" onclick="guardarCompetenciasPua()"><span class="glyphicon glyphicon-ok"></span></button>
+		          </div>
+		        </div>
+      		</div>
+      	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#biblio" onclick="obtenerBibliografia()">Bibliografía sugerida</a>
+      </h4>
+    </div>
+
+    <div id="biblio" class="panel-collapse collapse">
+      <div class="panel-body">
+        <script type="text/javascript">
+          $("#seleccionLibro").select2({
+          	placeholder: "Seleccione libro...",
+          	allowClear: true
+          });
+        </script>
+
+        <div class="row">
+      		<div class="col-md-5">
+      	 		<div class="form-group">
+		        	<select id="seleccionLibro" style="width: 340px;">
+		        	    <option value=""></option>
+		                #foreach($libroDTO in $listaLibros)
+		                  <option value="$libroDTO.idLibro">$libroDTO.libro</option>
+		                #end
+		         	</select>
+			    </div>
+
+		        <div class="form-group">
+			         #foreach($bibliografiaDTO in $listaTiposBibliografia)
+		    			<h5>
+		    				<input type="radio" aria-label="..." name="radioTipos" value="$bibliografiaDTO.idTipoBibliografia">
+		    				$bibliografiaDTO.tipoBibliografia
+		    			</h5>
+			    	#end
+			    </div>
+	        </div>
+
+          	<div class="col-md-1">
+            	<button type="button" class="btn btn-primary" onclick="agregarBibliografia()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+          	</div>
+
+          	<div class="col-md-6">
+          		<div id="bibliografia">
+
+          		</div>
+          	</div>
+
+	     </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+	      <a data-toggle="collapse" data-parent="#accordion" href="#comiteCurricular">Comité Curricular</a>
+	    </h4>
+	  </div>
+	
+	  <div id="comiteCurricular" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <div class="table-responsive">
+	        <table class="table table-bordered">
+	          <tr>
+	            <td>
+	              <strong>Nombre y firma de los docentes que participaron en su elaboración</strong>
+	            </td>
+					<script type="text/javascript">
+						$(".js-example-basic-multiple").select2();
+						placeholder: "Seleciones Docentes..."
+					</script>
+	            <td>
+	              <select class="js-example-basic-multiple form-control" multiple="multiple" id="selectDocentes" name="selectDocentes" style="width:500px">
+	                <option value="0" disabled >Seleccione Docentes...</option>
+	                #foreach($docenteDTO in $listaDocenteFacultad)
+	                  <option value=$docenteDTO.idDocente>$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno</option>
+	                #end
+	              </select>
+	
+	              <button onclick="agregarDocentePua()">Guardar</button>
+	              <div id="obtenerDocentePua">
+	
+	              </div>
+	            </td>
+	          </tr>
+	
+	          <tr>
+	            <td class="col-sm-6">
+	              <strong>Nombre y firma del Presidente y/o Secretario de la Academia; o en su caso, del responsable del comité Curricular</strong>
+	            </td>
+	
+	            <td class="col-sm-6">
+	              <div class="row">
+	                <div class="col-md-2">
+	                  <label for="Presidente">Presidente:</label>
+	                </div>
+	                <div class="col-md-10">
+	                  #foreach($docenteDTO in $listaPresidenteAcademia)
+	                    <div class="form-group">
+	                      <input type="text" readonly class="form-control" aria-label="..." value="$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno" name="nombreDocenteFacultad" id="nombreDocenteFacultad">
+	                    </div>
+	                  #end
+	                </div>
+	              </div>
+	
+	              <div class="row">
+	                <div class="col-md-2">
+	                  <label for="Secretario">Secretario:</label>
+	                </div>
+	
+	                <div class="col-md-10">
+	                  #foreach($docenteDTO in $listaSecretarioAcademia)
+	                    <div class="form-group">
+	                      <input type="text" readonly class="form-control" aria-label="..." value="$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno" name="nombreDocenteFacultad" id="nombreDocenteFacultad">
+	                    </div>
+	                  #end
+	                </div>
+	              </div>
+	            </td>
+	          </tr>
+	
+	          <tr>
+	            <td>
+	              <strong>Nombre y firma del coordinador de carrera</strong>
+	            </td>
+	
+	            <td>
+	              #foreach($docenteDTO in $listaCoordinador)
+	                <div class="form-group">
+	                  <input type="text" readonly class="form-control" aria-label="..." value="$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno" name="nombreDocenteFacultad" id="nombreDocenteFacultad">
+	                </div>
+	              #end
+	            </td>
+	          </tr>
+	
+	          <tr>
+	            <td>
+	              <strong>Nombre y firma del Secretario Académico</strong>
+	            </td>
+	
+	            <td>
+	              #foreach($docenteDTO in $listaSecretarioAcademico)
+	                <div class="form-group">
+	                  <input type="text" readonly class="form-control" aria-label="..." value="$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno" name="nombreDocenteFacultad" id="nombreDocenteFacultad">
+	                </div>
+	              #end
+	            </td>
+	          </tr>
+	
+	          <tr>
+	            <td>
+	              <strong>Nombre y firma del Director de la Facultad o Escuela</strong>
+	            </td>
+	
+	            <td>
+	              #foreach($docenteDTO in $listaDirector)
+	                <div class="form-group">
+	                  <input type="text" readonly class="form-control" aria-label="..." value="$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno" name="nombreDocenteFacultad" id="nombreDocenteFacultad">
+	                </div>
+	              #end
+	            </td>
+	          </tr>
+	
+	          <tr>
+	            <td class="col-sm-6">
+	              <strong>Fecha de elaboración o modificación</strong>
+	            </td>
+	
+	            <td>
+	              <input type="text" readonly class="form-control" name="fecha" id="fecha" value="fecha">
+	
+	              <script>
+	                var f = new Date();
+	                var g = f.getDate() + "/" + (f.getMonth()) + "/" + f.getFullYear();
+	                $('#fecha').val(g);
+	              </script>
+	            </td>
+	          </tr>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#perfildocente" onclick="obtenerPerfilAcademico()">
+					<h4 class="panel-title">
+						Perfil del docente
+					</h4>
+				</a>
+			</div>
+		</div>
+		
+		<div id="perfildocente" class="panel-collapse collapse">
+			<div class="panel-body">
+				<ul class="nav nav-tabs nav-justified" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#academicos" aria-controls="academicos" role="tab" data-toggle="tab"  onclick="obtenerPerfilAcademico()">
+							Académicos
+						</a>
+					</li>
+					<li role="presentation" class="">
+						<a href="#profesionales" aria-controls="profesionales" role="tab" data-toggle="tab"  onclick="obtenerPerfilProfesional()">
+							Profesionales
+						</a>
+					</li>
+					<li role="presentation" class="">
+						<a href="#docentes" aria-controls="docentes" role="tab" data-toggle="tab"  onclick="obtenerPerfilDocente()">
+							Docentes
+						</a>
+					</li>
+				</ul>
+				
+				<div class="tab-content">
+					<div id="academicos" role="tabpanel" class="tab-pane fade in active">
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-agregarpa">Nuevo perfil...</button>
+							</div>
+						</div>
+						
+						<br>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div id="perf_acad">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="profesionales" role="tabpanel" class="tab-pane fade">
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-agregarpp">Nuevo perfil...</button>
+							</div>
+						</div>
+						
+						<br>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div id="perf_prof">
+								
+								</div>
+							</div>		
+						</div>
+					</div>
+					
+					<div id="docentes" role="tabpanel" class="tab-pane fade">
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-agregarpd">Nuevo perfil...</button>
+							</div>
+						</div>
+						
+						<br>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div id="perf_doc">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#final" >Evaluación Final</a>
+			      </h4>
+			    </div>
+		
+		   		<div id="final" class="panel-collapse collapse">
+		      		<div class="panel-body">
+		        		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" id="evaluacion_final1" placeholder="Instrumentos de evaluacion final"
+				       			 #if( $evaluacionFinalDTO.evaluacion == $evidenciaFinalDTO.evaluacion) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.evaluacion != "" )
+		          						value="$evaluacionFinalDTO.evaluacion"	
+		          					#end
+		          				>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_final1" class="form-control"
+		          					#if( $evaluacionFinalDTO.ponderacion1 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.ponderacion1 > 0 )
+		          						value="$evaluacionFinalDTO.ponderacion1"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" id="evaluacion_final2" placeholder="Instrumentos de evaluacion final"
+				       			 #if( $evaluacionFinalDTO.evaluacion2 == $evidenciaFinalDTO.evaluacion2) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.evaluacion2 != "" )
+		          						value="$evaluacionFinalDTO.evaluacion2"	
+		          					#end
+		          				>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_final2" class="form-control"
+		          					#if( $evaluacionFinalDTO.ponderacion2 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.ponderacion2 > 0 )
+		          						value="$evaluacionFinalDTO.ponderacion2"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" id="evaluacion_final3" placeholder="Instrumentos de evaluacion final"
+				       			 #if( $evaluacionFinalDTO.evaluacion3 == $evidenciaFinalDTO.evaluacion3) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.evaluacion3 != "" )
+		          						value="$evaluacionFinalDTO.evaluacion3"	
+		          					#end
+		          				>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_final3" class="form-control"
+		          					#if( $evaluacionFinalDTO.ponderacion3 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.ponderacion3 > 0 )
+		          						value="$evaluacionFinalDTO.ponderacion3"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" id="evaluacion_final4" placeholder="Instrumentos de evaluacion final"
+				       			 #if( $evaluacionFinalDTO.evaluacion4 == $evidenciaFinalDTO.evaluacion4) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.evaluacion4 != "" )
+		          						value="$evaluacionFinalDTO.evaluacion4"	
+		          					#end
+		          				>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_final4" class="form-control"
+		          					#if( $evaluacionFinalDTO.ponderacion4 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionFinalDTO.ponderacion4 > 0 )
+		          						value="$evaluacionFinalDTO.ponderacion4"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>		
+		          			
+		          			<div class="col-md-2">
+		          				<button type="button" class="btn btn-success btn-sm" onclick="insertarEvaluacionFinalValidado()">Guardar</button>
+		          			</div>									          			
+			    		</div>
+			    		
+		      		</div>
+		   		 </div>
+		 	</div>
+		 	
+		 		 <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#competenciasFinal" >Evaluación Por Competencias</a>
+			      </h4>
+			    </div>
+		
+		   		<div id="competenciasFinal" class="panel-collapse collapse">
+		      		<div class="panel-body">
+		        		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" id="evaluacion_competencias1" readonly class="form-control" value="Exades">
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_competencia1"  readonly value="40"  class="form-control" >
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" placeholder="Instrumentos de evaluacion por Competencias"  id="evaluacion_competencias2"
+				       			
+				       			 #if( $evaluacionDTO.evaluacion2 == $evidenciaDTO.evaluacion2 ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.evaluacion2 != "" )
+		          						value="$evaluacionDTO.evaluacion2"	
+		          					#end
+		          				>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_competencia2" 
+		          					#if( $evaluacionDTO.ponderacion2 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.ponderacion2 > 0 )
+		          						value="$evaluacionDTO.ponderacion2"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+				       			<input type="text" class="form-control" id="evaluacion_competencias3" placeholder="Instrumentos de evaluacion por Competencias"
+				       			 #if( $evaluacionDTO.evaluacion3 == $evidenciaDTO.evaluacion3 ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.evaluacion3 != "" )
+		          						value="$evaluacionDTO.evaluacion3"	
+		          					#end
+		          					>
+			        		</div>
+		
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number"  id="ponderacion_competencia3"
+		          					#if( $evaluacionDTO.ponderacion3 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.ponderacion3 > 0 )
+		          						value="$evaluacionDTO.ponderacion3"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>								          			
+			    		</div>
+			    		
+			    		<br>
+			    		<div class="row">
+		      				<div class="col-md-8">
+		      				
+		      				
+		      			
+				       			<input type="text"  class="form-control" id="evaluacion_competencias4" placeholder="Instrumentos de evaluacion por Competencias "
+				       			 #if( $evaluacionDTO.evaluacion4 == $evidenciaDTO.evaluacion4 ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.evaluacion4 != "" )
+		          						value="$evaluacionDTO.evaluacion4"	
+		          					#end
+		          					>
+			        		
+			        		</div>
+							
+		          			<div class="col-md-2">
+		          				<div class="input-group">
+		          					<input type="number" id="ponderacion_competencia4"
+		          					#if( $evaluacionDTO.ponderacion4 == "0" ) 
+		          						value=""
+		          					#elseif ($evaluacionDTO.ponderacion4 > 0 )
+		          						value="$evaluacionDTO.ponderacion4"	
+		          					#end
+		          					class="form-control" >
+		          						
+		          					<span class="input-group-addon">%</span>
+		          				</div>
+		          			</div>		
+		          			
+		          			<div class="col-md-2">
+		          				<button type="button" class="btn btn-success btn-sm" onclick="insertarEvaluacionCompetenciasValidado()">Guardar</button>
+		          			</div>									          			
+			    		</div>
+			    		
+		      		</div>
+		   		 </div>
+		 	</div>
+	</div>
+
+
+
+
+<div class="containerSubcompetencias">
+
+</div>
+
+
+<br>
+

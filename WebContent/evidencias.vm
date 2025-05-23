@@ -1,0 +1,59 @@
+<div class="table-responsive anima">
+	<table class="table table-bordered table-hover">
+		#foreach($evidenciaDTO in $listaEvidenciasSub)
+			<tr>
+				<td>$evidenciaDTO.evidencia</td>
+				<td>
+					$evidenciaDTO.ponderacion
+					<button class="close" onclick="eliminarEvidencia($evidenciaDTO.idSubcompetencia, $evidenciaDTO.idEvidencia)">&times;</span></button>
+				</td>
+			</tr>
+		#end
+	</table>
+</div>
+
+
+<!-- MODAL ...Nueva evidencia -->
+
+<div class="modal fade" id="modal-agregare" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="close">
+					<span aria-label="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Nueva evidencia...</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="select_evidencia">Evidencia</label>
+							<select class="form-control" id="select_evidencia" name="evidenciaDTO.idEvidencia" onchange="verificarEvidencia()">
+								<option value="0">Seleccione...</option>
+								#foreach($evidenciaDTO in $listaEvidencias)
+									<option value=$evidenciaDTO.idEvidencia>$evidenciaDTO.evidencia</option>
+								#end
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="ponderacion_evidencia">Ponderación</label>
+							<div class="input-group">
+								<input type="number" class="form-control popovers" id="ponderacion_evidencia" name="evidenciaDTO.ponderacion" min="1" onfocus="popovers()">
+								<span class="input-group-addon">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	            <button type="button" id="btnAgregarEvidencia" class="btn btn-primary" onclick="agregarEvidencia(this.value)">Agregar</button>
+			</div>
+
+		</div>
+	</div>
+</div>

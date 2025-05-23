@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="puaReport_subreport2" pageWidth="802" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" isSummaryNewPage="true" uuid="85146ea7-18b3-4ed3-bc14-a28d18f2d0d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="19"/>
+	<style name="style1" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="1.0"/>
+		<box>
+			<pen lineWidth="1.0" lineStyle="Solid"/>
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="style2">
+		<pen lineWidth="0.0" lineStyle="Solid"/>
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<leftPen lineColor="#333333"/>
+			<bottomPen lineWidth="1.0" lineColor="#333333"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style3">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style4">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="style5"/>
+	<subDataset name="basica" uuid="7b6fe690-5b8b-4379-98a1-078c24d3a569">
+		<field name="idLibro" class="java.lang.Integer"/>
+		<field name="autorPrincipal" class="java.lang.String"/>
+		<field name="editorial" class="java.lang.String"/>
+		<field name="libro" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="complementaria" uuid="5bd306c3-4d28-488e-b4cb-0de5074ebc7d">
+		<field name="idLibro" class="java.lang.Integer"/>
+		<field name="autorPrincipal" class="java.lang.String"/>
+		<field name="editorial" class="java.lang.String"/>
+		<field name="libro" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="sitios" uuid="d32779ab-7b6c-4ae8-943e-3567502ce529">
+		<field name="idLibro" class="java.lang.Integer"/>
+		<field name="autorPrincipal" class="java.lang.String"/>
+		<field name="editorial" class="java.lang.String"/>
+		<field name="libro" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="reporte" uuid="c9b95bc3-ccb7-439d-be8c-89cd8fa76b42">
+		<field name="ponderado" class="java.lang.Integer"/>
+		<field name="subcompetencia" class="java.lang.String"/>
+		<field name="parcial" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="evafinal" uuid="6ba5be60-6058-49f6-91f1-c57f75af19c9">
+		<field name="evaluacion" class="java.lang.String"/>
+		<field name="ponderacion1" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="evacom" uuid="21b9e62d-b9ae-492d-94a7-f12745c0bba1">
+		<field name="evaluacion" class="java.lang.String"/>
+		<field name="ponderacion1" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="listaReporte" class="java.util.List"/>
+	<parameter name="creditacionCompetencias" class="java.lang.Integer"/>
+	<parameter name="listaEvaluacion" class="java.util.List"/>
+	<parameter name="listaEvaluacionFinal" class="java.util.List"/>
+	<parameter name="subReport_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="datasource_2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="comite" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="comiteDb" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="listaBasica" class="java.util.List"/>
+	<field name="listaComplementaria" class="java.util.List"/>
+	<field name="listaSitios" class="java.util.List"/>
+	<detail>
+		<band height="66">
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="1" width="737" height="15" backcolor="#EDE8E2" uuid="04464918-3c85-469e-a0ea-8c7d047591b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Bibliografía Sugerída]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement style="style3" x="10" y="16" width="737" height="50" uuid="de29044e-0e18-4961-9a97-8da44b725ebe"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="basica" uuid="70284c3b-159b-45d2-8d62-6ab815c92fda">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaBasica})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="34af332e-d905-4fd2-8f0d-3fe2bbd70240"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{autorPrincipal}!=null?$F{idLibro}+". "+$F{autorPrincipal}+" "+$F{libro}+" "+$F{editorial}:""]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="10" y="0" width="100" height="20" uuid="5e3f8d3e-595c-4d99-adea-922fb537da7b"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[BÁSICA:]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="51">
+			<line>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="10" y="50" width="737" height="1" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="d93f3a24-3f62-458a-9ffe-5fcb55741be7">
+					<printWhenExpression><![CDATA[$F{listaSitios}.isEmpty()==true]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<componentElement>
+				<reportElement style="style4" x="10" y="0" width="737" height="50" uuid="f7f07a0a-3f3e-4841-abd3-56f596f91730"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="complementaria" uuid="bacc15a0-97fc-41ee-970c-d16442916bbf">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaComplementaria})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<staticText>
+							<reportElement x="10" y="0" width="119" height="20" uuid="593547db-93a5-4acb-962a-03f24f119530"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[COMPLEMENTARIA:]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="c09b8b4a-b06b-4baa-95f3-3bb67191b914"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{autorPrincipal}!=null?$F{idLibro}+". "+$F{autorPrincipal}+" "+$F{libro}+" "+$F{editorial}:""]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="51">
+			<componentElement>
+				<reportElement style="style2" x="10" y="0" width="737" height="50" uuid="670ead8c-fa8a-499a-a5d1-6a9825c71f1b"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="sitios" uuid="9eb48836-0f90-44ab-b643-305aa21af776">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaSitios})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<staticText>
+							<reportElement isPrintRepeatedValues="false" x="10" y="0" width="100" height="20" uuid="963043cc-7562-4a1d-91e0-e6880f617e31"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[SITIOS WEB:]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="c582b1e0-d793-483a-adfc-5b0cbf7d7186"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{autorPrincipal}!=null?$F{idLibro}+". "+$F{autorPrincipal}+" "+$F{libro}+" "+$F{editorial}:""]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<break>
+				<reportElement x="0" y="50" width="762" height="1" uuid="3eacfeff-0149-49ec-9a0b-0c86e0554047"/>
+			</break>
+		</band>
+	</detail>
+	<summary>
+		<band height="423">
+			<componentElement>
+				<reportElement x="10" y="15" width="737" height="20" uuid="07508a6e-f9fa-4369-9a70-166414712737"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="reporte" uuid="5c1e866c-ac06-4b56-9e18-73528d7a3e9f">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaReporte})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="737">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="style1" x="519" y="0" width="218" height="20" isPrintWhenDetailOverflows="true" uuid="073cd220-9524-46e1-bb39-fd46c1c7ecd8"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="Arial" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{ponderado}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement style="style1" x="0" y="0" width="244" height="20" isPrintWhenDetailOverflows="true" uuid="e080cdc8-3304-4083-8cb7-2db1f8777e8c"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subcompetencia}!=null?"     "+$F{subcompetencia}:""]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement style="style1" x="244" y="0" width="275" height="20" isPrintWhenDetailOverflows="true" uuid="e99d8414-7852-444a-b47a-e0807dbb9195"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{parcial}!=null?"     "+$F{parcial}:""]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="0" width="244" height="15" backcolor="#EDE8E2" uuid="ea41d4cb-76ee-4c08-b25a-50ad05a5ec4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de la Subcompetencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="254" y="0" width="275" height="15" backcolor="#EDE8E2" uuid="baa0551c-6ce3-41a0-9d76-5e8784c1c87a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de evaluación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="529" y="0" width="218" height="15" backcolor="#EDE8E2" uuid="e7ddbc2a-e3e2-4398-ae5a-7936dc419a27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Ponderación]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" mode="Opaque" x="10" y="129" width="411" height="32" backcolor="#EDE8E2" uuid="9e9287cb-7c46-4749-9b82-320820b83f4f"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     El programa de la Unidad de Aprendizaje puede acreditarse por"+"\n     demostración de competencias"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" x="421" y="129" width="326" height="32" uuid="9c9696e4-f542-4b6a-9bf3-e2135e368b19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["     "+($P{creditacionCompetencias}==1?"Si":"No")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="179" width="519" height="15" backcolor="#EDE8E2" uuid="16aeb7d4-25b6-4ecc-973b-c6f4f59c5183"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Instrumentos de evaluación Final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="529" y="179" width="218" height="15" backcolor="#EDE8E2" uuid="aa91aba3-ba59-48cb-b547-e76fc30cfa4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Ponderación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="311" width="519" height="15" backcolor="#EDE8E2" uuid="0d791d15-c347-47c7-a9ae-62ce3b74a0b3">
+					<printWhenExpression><![CDATA[$P{creditacionCompetencias}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Evidencia de la evaluación ordinaria o por competencias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="529" y="311" width="218" height="15" backcolor="#EDE8E2" uuid="5e8919b4-b442-479f-8c0a-b7fd977a457d">
+					<printWhenExpression><![CDATA[$P{creditacionCompetencias}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Ponderación]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="10" y="194" width="737" height="20" uuid="e6ffeda6-c8f1-4498-9efb-7ac9f5ddd763"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="evafinal" uuid="1de0112c-a0df-4753-89a8-20c037a9e55c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaEvaluacionFinal})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="737">
+						<textField>
+							<reportElement style="style1" x="0" y="0" width="519" height="20" uuid="7d725fa9-b125-4660-96dc-972b0eb086b1"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{evaluacion}!=null?"     "+$F{evaluacion}:""]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement style="style1" x="519" y="0" width="218" height="20" uuid="52080c97-5093-4bfb-ad5b-2774d398ef87"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{ponderacion1}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="10" y="326" width="737" height="20" uuid="e3ca1a84-55ff-4fd0-a1ea-68d1176b4f9a">
+					<printWhenExpression><![CDATA[$P{creditacionCompetencias}==1]]></printWhenExpression>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="evacom" uuid="4ed12a8f-7234-4806-8845-0be28977cd47">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaEvaluacion})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="737">
+						<textField>
+							<reportElement style="style1" x="0" y="0" width="519" height="20" uuid="234f6ea3-aa40-4d46-915a-a375be0c0535"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{evaluacion}!=null?"     "+$F{evaluacion}:""]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement style="style1" x="519" y="0" width="218" height="20" uuid="2eaf443b-3594-4a7e-a05d-048b8367316f"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{ponderacion1}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<break>
+				<reportElement x="0" y="394" width="802" height="1" uuid="c898f4c6-37ab-408a-b89b-849abbbb60e4"/>
+			</break>
+			<subreport>
+				<reportElement x="-4" y="399" width="747" height="23" uuid="411b5050-3ea9-4250-9fc9-b2f2ed79b256"/>
+				<subreportParameter name="comite">
+					<subreportParameterExpression><![CDATA[$P{comite}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="listaEvaluacionFinal">
+					<subreportParameterExpression><![CDATA[$P{listaEvaluacionFinal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="comiteDb">
+					<subreportParameterExpression><![CDATA[$P{comiteDb}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{datasource_2}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReport_2}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

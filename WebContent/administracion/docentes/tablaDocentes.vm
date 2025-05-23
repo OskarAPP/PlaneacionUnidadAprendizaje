@@ -1,0 +1,90 @@
+#set($contador = 1)
+#foreach($docenteDTO in $listaTipoDocente)
+                        <tr>
+                          <th scope="row">$contador</th>
+                          <th contenteditable="true" id="prefijo$docenteDTO.idDocente"onblur="actualizarDocente($docenteDTO.idDocente)">$docenteDTO.prefijo</th>
+                          <td contenteditable="true" id="nombre$docenteDTO.idDocente"onblur="actualizarDocente($docenteDTO.idDocente)">$docenteDTO.nombre</td>
+                          <td contenteditable="true" id="apaterno$docenteDTO.idDocente"onblur="actualizarDocente($docenteDTO.idDocente)">$docenteDTO.apellidoPaterno</td>
+                          <td contenteditable="true" id="amaterno$docenteDTO.idDocente"onblur="actualizarDocente($docenteDTO.idDocente)">$docenteDTO.apellidoMaterno</td>
+                          <td contenteditable="true" id="correo$docenteDTO.idDocente"onblur="actualizarDocente($docenteDTO.idDocente)">$docenteDTO.correo</td>
+                          <td>
+                          	#set($c= 0)
+                          	#set($matAntigua= 0)
+                          
+		                        #foreach($f in $docenteDTO.listaFacultad)
+		                        	#foreach($facultadDTO in $listaFacultad)
+	            							#if($f.facultad==$facultadDTO.facultad)
+				    							#set($matAntigua= $facultadDTO.idFacultad)
+				    						#end
+	            					#end
+	                              <select class="btn btn-default" name="docenteDTO.idFacultad" id="$docenteDTO.idDocente$f.idFacultad$c"
+	                              onchange="cambiarFacultad($docenteDTO.idDocente, '$docenteDTO.idDocente$f.idFacultad$c',$matAntigua)">
+	                              <option value="0">Seleccione una facultad...</option>
+	            					#foreach($facultadDTO in $listaFacultad)
+	            						<option value=$facultadDTO.idFacultad
+	            						#if($f.facultad==$facultadDTO.facultad) selected
+	            						#end
+	            						>$facultadDTO.facultad</option>
+	            					#end
+	            					#set($c= $c+1)
+	            				  </select><br><br>
+            					#end			
+	                            <button type="button" onclick="generarFacultad($docenteDTO.idDocente)" 
+	                            class="btn btn-success">Asignar otra facultad</button>
+                          </td>
+                           <td>
+		                        #foreach($f in $docenteDTO.listaFacultad)				
+		                           <button type="button" onclick="eliminarDocenteFacultad($docenteDTO.idDocente,'$f.facultad',$docenteDTO.idTipo);" 
+		                            class="btn btn-danger">Eliminar facultad</button><br><br>
+            					#end
+                          </td>
+                              <td> 
+                              	#foreach($tipo in $docenteDTO.listaTipo)
+                              		$tipo.tipo 			
+		                           #if($tipo.idTipo==1)
+		                           	de&nbsp;
+		                           #else 
+		                           	de la Facultad de 
+		                           #end 
+		                           $tipo.facultad<br><br>
+            					#end</td>
+                              <td>
+                          		<button type="button" class="btn btn-success btn-block" onclick="infoPua($docenteDTO.idDocente)">
+                                 	Asignar Materia
+                                </button><br>
+                                <button type="button" class="btn btn-danger btn-block" data-toggle="button" 
+                                 onclick="eliminarDocente($docenteDTO.idDocente,$docenteDTO.idTipo)" aria-pressed="false">Eliminar docente
+                                </button>
+                              </td>
+                              <td>
+                                <form action="Administrador.action" method="post">
+                                	<input type="hidden" name="tipoAccion" id="idDocente" value="infoAcceso">
+                                	<input type="hidden" name="docenteDTO.idDocente" id="lista" value="$docenteDTO.idDocente">
+	                                <button type="submit" class="btn btn-primary btn-block">Administrar Accesos</button>
+                                </form><br>
+                              #if($docenteDTO.listaFacultad.size()>0)				
+		                           <form action="Administrador.action" method="post">
+	                                	<input type="hidden" name="tipoAccion" id="idDocente" value="infoPuesto">
+	                                	<input type="hidden" name="docenteDTO.idDocente" id="idDocente" value="$docenteDTO.idDocente">
+	                                	<input type="hidden" name="docenteDTO.idTipo" id="idTipo" value="$docenteDTO.idTipo">
+		                                <button type="submit" class="btn btn-info btn-block">Cambiar Rol</button>
+	                                </form>
+            					#end
+                              </td>
+                            </tr>
+                          #set($contador = $contador+1)
+                          #end
+                          
+                          <tr>
+	                              <th></th>
+	                              <th><span style="color:white;">_________</span></th>
+	                              <th><span style="color:white;">_____________________</span></th>
+	                              <th><span style="color:white;">_____________________</span></th>
+	                              <th><span style="color:white;">_____________________</span></th>
+	                              
+	                              <th></th>
+	                              <th colspan=2></th>
+	                              <th><span style="color:white;">________________________________</span></th>
+	                              <th></th>
+	                              <th></th>
+	                            </tr>

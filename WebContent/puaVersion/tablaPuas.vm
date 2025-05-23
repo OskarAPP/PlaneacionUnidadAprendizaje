@@ -1,0 +1,47 @@
+#set($contador = 1)
+#set($idVersion = 1)
+	#foreach($pua in $listaPua)
+    	<tr #if($pua.autorizado==false) class="alert alert-danger" #else class="alert alert-success" #end>
+	        <th scope="row">$contador</th>
+	    	<td>$pua.materia.nombreMateria</td>
+	        <td>$pua.planEstudio</td>
+	        <td>#if($pua.estado==false)
+	        	Finalizado
+	        #else
+	       		Activo
+	        #end</td>
+	        <td>#if($pua.autorizado==false)
+	        	No Autorizado
+	        #else
+	       		Autorizado
+	        #end
+	        </td>
+	        <td>
+	        #if($listaPuaVersion.size()==0 || $pua.autorizado==false) 0 #else
+		        #foreach($version in $listaPuaVersion)
+		        	#if($version.pua.idPua==$pua.idPua)
+		        		$version.version
+		        		#set($idVersion = $version.id)
+		        		#break
+		        	#end
+	        	#end
+	        #end
+	        </td>
+	        <td>
+        	#if($pua.autorizado==false)
+		        <form method="post" action="PuaVersion.action"> 
+		        	<input type="hidden" name="tipoAccion" id="tipoAccion" value="versionamiento">
+	                <input type="hidden" name="idPua" id="idPua" value="$pua.idPua">
+					<button type="submit" class="btn btn-primary btn-block">Autorizar Versión
+					</button>
+				</form>
+			#else
+				<button type="button" onclick="eliminarVersion($idVersion)" class="btn btn-warning btn-block">Eliminar Versión</button> 
+	        #end 
+	        </td>
+	        <td>
+	        	<button type="button" onclick="eliminarPua($pua.idPua)" class="btn btn-danger btn-block">Eliminar Pua</button>
+	        </td>
+        </tr>
+	#set($contador = $contador+1)
+#end

@@ -1,0 +1,123 @@
+#set($contadorNumTema = 0)
+
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		
+		#foreach($temaDTO in $listaTemas)
+			<tr >
+				<td><strong>$temaDTO.numeroTema</strong></td>
+				<td>
+					$temaDTO.tema
+					<button class="close" onclick="eliminarTema($temaDTO.idTema, $temaDTO.idSubcompetencia)">&times;</span></button>
+				</td>
+				<td>
+					<div id="subtemasde$temaDTO.idTema">
+						
+					</div>
+##					<div class="form-group">
+##						<div class="input-group">
+##							<span class="input-group-btn">
+								<a class="btn btn-default btn-xs" onclick="mostrarModalSubtema($temaDTO.idTema)" title="Agregar nuevo subtema">Agregar Subtema</a>
+								<a class="btn btn-default btn-xs" onclick="obtenerSubtemas($temaDTO.idTema)" title="Mostrar los subtemas">Mostrar subtemas</a>
+##							</span>
+##						</div>
+##					</div>
+    			</td>
+			</tr>
+			#set($contadorNumTema = $temaDTO.numeroTema)
+		#end
+	</table>		    						
+</div>
+
+
+<!-- MODAL ...Nuevo tema -->
+
+#set($nuevoNumTema = $contadorNumTema + 1)
+<div class="modal fade" id="modal-agregart" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-label="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Nuevo tema...</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					
+				</div>
+				<div class="row">
+##						<div class="col-md-2">
+##							<div class="form-group">
+##								<label>ID</label>
+##								<input type="text" readonly class="form-control" id="idsub_tema" value="" name="" min="1" required>
+##							</div>
+##						</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="numtema">Número</label>
+							<input type="number" class="form-control popovers" id="numtema" name="temaDTO.numeroTema" min="1" onclick="popovers()" value="$nuevoNumTema">
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="tema">Tema</label>
+							<input type="text" class="form-control popovers" id="tema" name="temaDTO.tema" onfocus="popovers()">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	            <button id="btnAgregarTema" type="button" class="btn btn-primary" onclick="agregarTema(this.value)">Agregar</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- MODAL ...Nuevo subtema -->
+
+<div class="modal fade" id="modal-agregarst" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-label="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Nuevo subtema...</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+##						<div class="col-md-2">
+##							<div class="form-group">
+##								<label>ID</label>
+##								<input type="text" readonly class="form-control" id="idtema_sub" value="" name="" min="1" required>
+##							</div>
+##						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="numsubtema">Número</label>
+							<input type="number" class="form-control popovers" id="numsubtema" name="subtemaDTO.numeroSubtema" min="1" onfocus="popovers()">
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="subtema">Subtema</label>
+							<input type="text" class="form-control popovers" id="subtema" name="subtemaDTO.subtema" onfocus="popovers()">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	            <button id="btnAgregarSubtema" type="button" class="btn btn-default" onclick="agregarSubtema(this.value)" >Agregar</button>
+			</div>
+		</div>
+	</div>
+</div>
+

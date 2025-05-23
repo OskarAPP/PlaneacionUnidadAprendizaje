@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC 
+    "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" 
+    "https://www.hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd"> <!-- URL HTTPS -->
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="pua" match-name="academia"/>
+  <table-filter match-catalog="pua" match-name="academia_materia"/>
+  <table-filter match-catalog="pua" match-name="acceso"/>
+  <table-filter match-catalog="pua" match-name="actividadal"/>
+  <table-filter match-catalog="pua" match-name="actividaddoc"/>
+  <table-filter match-catalog="pua" match-name="ambiente"/>
+  <table-filter match-catalog="pua" match-name="aream"/>
+  <table-filter match-catalog="pua" match-name="bibliografia_pua"/>
+  <table-filter match-catalog="pua" match-name="bibliografia_subcompetencia"/>
+  <table-filter match-catalog="pua" match-name="carrera"/>
+  <table-filter match-catalog="pua" match-name="carrera_materia"/>
+  <table-filter match-catalog="pua" match-name="competenciaesp"/>
+  <table-filter match-catalog="pua" match-name="competenciagen"/>
+  <table-filter match-catalog="pua" match-name="criterio"/>
+  <table-filter match-catalog="pua" match-name="docente"/>
+  <table-filter match-catalog="pua" match-name="docente_facultad"/>
+  <table-filter match-catalog="pua" match-name="docente_materia"/>
+  <table-filter match-catalog="pua" match-name="editorial"/>
+  <table-filter match-catalog="pua" match-name="evaluacion_competencias"/>
+  <table-filter match-catalog="pua" match-name="evaluacion_final"/>
+  <table-filter match-catalog="pua" match-name="evidencia"/>
+  <table-filter match-catalog="pua" match-name="evidencia_subcompetencia"/>
+  <table-filter match-catalog="pua" match-name="facultad"/>
+  <table-filter match-catalog="pua" match-name="libro"/>
+  <table-filter match-catalog="pua" match-name="materia"/>
+  <table-filter match-catalog="pua" match-name="material"/>
+  <table-filter match-catalog="pua" match-name="nucleom"/>
+  <table-filter match-catalog="pua" match-name="perfilacad"/>
+  <table-filter match-catalog="pua" match-name="perfildoc"/>
+  <table-filter match-catalog="pua" match-name="perfilprof"/>
+  <table-filter match-catalog="pua" match-name="pua"/>
+  <table-filter match-catalog="pua" match-name="pua_competenciaesp"/>
+  <table-filter match-catalog="pua" match-name="pua_competenciagen"/>
+  <table-filter match-catalog="pua" match-name="pua_docente"/>
+  <table-filter match-catalog="pua" match-name="pua_version"/>
+  <table-filter match-catalog="pua" match-name="subcompetencia"/>
+  <table-filter match-catalog="pua" match-name="subcompetencia_ambiente"/>
+  <table-filter match-catalog="pua" match-name="subcompetencia_material"/>
+  <table-filter match-catalog="pua" match-name="subtema"/>
+  <table-filter match-catalog="pua" match-name="tema"/>
+  <table-filter match-catalog="pua" match-name="tipo"/>
+  <table-filter match-catalog="pua" match-name="tipo_docente"/>
+  <table-filter match-catalog="pua" match-name="tipobib"/>
+  <table-filter match-catalog="pua" match-name="tipom"/>
+</hibernate-reverse-engineering>

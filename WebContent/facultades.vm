@@ -1,0 +1,3 @@
+#foreach($facultadDTO in $listaFacultad)
+	<option value=$facultadDTO.idFacultad>$facultadDTO.facultad</option>
+#end

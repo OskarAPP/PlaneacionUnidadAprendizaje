@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <bean class="org.apache.struts2.views.velocity.VelocityManager" name="default" optional="true"/>
+    
+    <package name="libre" extends="jasperreports-default, struts-default" namespace="/">      	
+ 		<action name="PuaVersion" class="pua.net.controlador.PuaVersionAction">
+ 			<result name="error" type="velocity">/mensaje.vm</result> 
+ 			<result name="exito" type="velocity">/mensaje.vm</result>
+ 			<result name="listaPua" type="velocity">/puaVersion/listaPuas.vm</result>
+ 			<result name="listaPuaVersion" type="velocity">/puaVersion/listaPuasVersion.vm</result>
+ 			<result name="tablaPua" type="velocity">/puaVersion/tablaPuas.vm</result>
+ 			<result name="tablaPuaVersion" type="velocity">/puaVersion/tablaPuasVersion.vm</result>
+ 			<result name="versionamiento" type="velocity">/puaVersion/versionamiento.vm</result>
+ 		</action>
+ 		
+ 		<action name="Administrador" class="pua.net.controlador.AdministradorAction">
+      		<result name="error" type="velocity">/mensaje.vm</result> 
+      		<result name="index" type="velocity">/panelAcceso.vm</result> 
+          	<result name="docentes" type="velocity">/administracion/docentes/docentes.vm</result>
+          	<result name="academia" type="velocity">/administracion/docentes/academia.vm</result>
+          	<result name="coordinador" type="velocity">/administracion/docentes/carreras.vm</result>
+          	<result name="blanco" type="velocity">/administracion/blanco.vm</result>
+          	<result name="carreras" type="velocity">/carreras.vm</result>
+          	<result name="listaDocentes" type="velocity">/administracion/docentes/listaDocentes.vm</result>
+          	<result name="tablaDocentes" type="velocity">/administracion/docentes/tablaDocentes.vm</result>
+          	<result name="infoPuesto" type="velocity">/administracion/docentes/puesto.vm</result>
+          	<result name="infoAcceso" type="velocity">/administracion/docentes/acceso.vm</result>
+          	<result name="tablaAcceso" type="velocity">/administracion/docentes/tablaAcceso.vm</result>
+          	<result name="exito" type="velocity">/mensaje.vm</result>
+          	<result name="listaMaterias" type="velocity">/administracion/materias/listaMaterias.vm</result>
+          	<result name="tablaMaterias" type="velocity">/administracion/materias/tablaMaterias.vm</result>
+          	<result name="listaCarreras" type="velocity">/administracion/carreras/listaCarreras.vm</result>
+          	<result name="tablaCarreras" type="velocity">/administracion/carreras/tablaCarreras.vm</result>
+          	<result name="listaCarrerasMaterias" type="velocity">/administracion/carreras/listaMaterias.vm</result>
+          	<result name="tablaCarrerasMaterias" type="velocity">/administracion/carreras/tablaMaterias.vm</result>
+          	<result name="listaAcademia" type="velocity">/administracion/academia/listaAcademia.vm</result>
+          	<result name="tablaAcademia" type="velocity">/administracion/academia/tablaAcademia.vm</result>
+          	<result name="listaFacultad" type="velocity">/administracion/facultad/listaFacultad.vm</result>
+          	<result name="tablaFacultad" type="velocity">/administracion/facultad/tablaFacultad.vm</result>
+          	<result name="listaGenerica" type="velocity">/administracion/comgenerica/listaGenerica.vm</result>
+          	<result name="tablaGenerica" type="velocity">/administracion/comgenerica/tablaGenerica.vm</result>
+          	<result name="listaEspecifica" type="velocity">/administracion/comespecifica/listaEspecifica.vm</result>
+          	<result name="tablaEspecifica" type="velocity">/administracion/comespecifica/tablaEspecifica.vm</result>
+          	
+          	<result name="insertarGenerica" type="velocity">/administracion/comgenerica/comgenerica.vm</result>
+          	<result name="regGenerica" type="velocity">/administracion/comgenerica/comgenerica.vm</result>
+          	<result name="insertarEspecifica" type="velocity">/administracion/comespecifica/comespecifica.vm</result>
+          	<result name="regEspecifica" type="velocity">/administracion/comespecifica/comespecifica.vm</result>
+          	<result name="insertarAcademia" type="velocity">/administracion/academia/academia.vm</result>
+          	<result name="regAcademia" type="velocity">/administracion/academia/academia.vm</result>
+          	<result name="insertarCarrera" type="velocity">/administracion/carreras/carreras.vm</result>
+          	<result name="regCarrera" type="velocity">/administracion/carreras/carreras.vm</result>
+          	<result name="insertarFacultad" type="velocity">/administracion/facultad/facultad.vm</result>
+          	<result name="regFacultad" type="velocity">/administracion/facultad/facultad.vm</result>
+          	<result name="insertarMateria" type="velocity">/administracion/materias/materias.vm</result>
+          	<result name="regMateria" type="velocity">/administracion/materias/materias.vm</result>
+          	<result name="regDocentes" type="velocity">/administracion/docentes/docentes.vm</result>
+          	<result name="insertarMateriaCSV" type="velocity">/administracion/materias/RegistroCSV.vm</result>
+          	<result name="materiaCSV" type="velocity">/administracion/materias/RegistroCSV.vm</result>
+          	<result name="insertarDocenteCSV" type="velocity">/administracion/docentes/RegistroCSV.vm</result>
+          	<result name="docenteCSV" type="velocity">/administracion/docentes/RegistroCSV.vm</result>
+          	<result name="insertarCarreraCSV" type="velocity">/administracion/carreras/RegistroCSV.vm</result>
+          	<result name="carreraCSV" type="velocity">/administracion/carreras/RegistroCSV.vm</result>
+          	<result name="insertarAcademiaCSV" type="velocity">/administracion/academia/RegistroCSV.vm</result>
+          	<result name="academiaCSV" type="velocity">/administracion/academia/RegistroCSV.vm</result>
+          	<result name="insertarGenericaCSV" type="velocity">/administracion/comgenerica/RegistroCSV.vm</result>
+          	<result name="genericaCSV" type="velocity">/administracion/comgenerica/RegistroCSV.vm</result>
+          	<result name="insertarEspecificaCSV" type="velocity">/administracion/comespecifica/RegistroCSV.vm</result>
+          	<result name="especificaCSV" type="velocity">/administracion/comespecifica/RegistroCSV.vm</result>
+          	
+          	<result name="updatePuesto" type="velocity">/administracion/docentes/listaDocentes.vm</result>
+      	</action>
+ 		
+      	<action name="ProcesarPua" class="pua.net.controlador.PuaAction">
+      		<result name="logout" type="velocity">/login.vm</result>
+      		<result name="error" type="velocity">/mensaje.vm</result> 
+          	<result name="desplegar" type="velocity">/pua.vm</result>
+          	<result name="facultades" type="velocity">/facultades.vm</result>
+          	<result name="carreras" type="velocity">/carreras.vm</result>
+          	<result name="materias" type="velocity">/materias.vm</result>
+          	<result name="infoPua" type="velocity">/puafolder.vm</result> 
+          	<result name="imprimirPUA" type="velocity">/imprimirPua.vm</result> 
+          	<result name="navbar" type="velocity">/navbarDocente.vm</result> 
+          	 
+          	<result name="infoSubcompetencias" type="velocity">/subcompetencias.vm</result>
+          	<result name="obtenerCriterios" type="velocity">/criterios.vm</result>
+          	<result name="obtenerEvidencias" type="velocity">/evidencias.vm</result>
+          	<result name="obtenerGenericasPua" type="velocity">/genericas.vm</result>
+          	<result name="obtenerEspecificasPua" type="velocity">/especificas.vm</result>
+          	<result name="obtenerDocentePua"  type="velocity">/docentesPua.vm</result>
+          	<result name="obtenerTemas" type="velocity">/temas.vm</result>
+          	<result name="obtenerSubtemas" type="velocity">/subtemas.vm</result>
+          	<result name="obtenerActividades" type="velocity">/actividades.vm</result>
+          	<result name="obtenerBibliografiaPua" type="velocity">/bibliografia.vm</result>
+          	<result name="obtenerAmbientesSubcompetencia" type="velocity">/ambientes.vm</result>
+          	<result name="obtenerBibliografiaSubcompetencia" type="velocity">/bibliografia_sub.vm</result>
+          	<result name="obtenerPerfilAcademico" type="velocity">/perfiles_academicos.vm</result>
+          	<result name="obtenerPerfilProfesional" type="velocity">/perfiles_profesional.vm</result>
+          	<result name="obtenerPerfilDocente" type="velocity">/perfiles_docente.vm</result>
+          	<result name="obtenerMaterialesSub" type="velocity">/materiales.vm</result>
+          	
+          	<result name="guardarCompetenciasPua" type="velocity">/mensaje.vm</result>
+          	<result name="guardarSubcompetencia" type="velocity">/mensaje.vm</result> 
+          	
+          	<result name="generarSubcompetencia" type="velocity">/mensaje.vm</result>
+          	<result name="insertarTema" type="velocity">/mensaje.vm</result>
+          	<result name="insertarSubtema" type="velocity">/mensaje.vm</result>
+          	<result name="insertarCriterio" type="velocity">/mensaje.vm</result>
+          	<result name="insertarEvidencia" type="velocity">/mensaje.vm</result>
+          	<result name="insertarCompetenciaGenericaPua" type="velocity">/mensaje.vm</result>
+          	<result name="insertarCompetenciaEspecificaPua" type="velocity">/mensaje.vm</result>
+          	<result name="insertarDocentePua" type="velocity">/mensaje.vm</result>
+          	<result name="insertarActividad" type="velocity">/mensaje.vm</result>
+          	<result name="insertarBibliografiaPua" type="velocity">/mensaje.vm</result>
+          	<result name="insertarAmbienteSubcompetencia" type="velocity">/mensaje.vm</result>
+          	<result name="insertarBibliografiaSubcompetencia" type="velocity">/mensaje.vm</result>
+          	<result name="insertarPerfilAcademico" type="velocity">/mensaje.vm</result>
+          	<result name="insertarPerfilProfesional" type="velocity">/mensaje.vm</result>
+          	<result name="insertarPerfilDocente" type="velocity">/mensaje.vm</result>
+          	<result name="insertarMaterialSub" type="velocity">/mensaje.vm</result>
+          	<result name="insertarEvaluacionCompetencias" type="velocity">/mensaje.vm</result>
+          	<result name="insertarEvaluacionFinal" type="velocity">/mensaje.vm</result>
+          	
+          	
+          	<result name="eliminarSubcompetencia" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarTema" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarSubtema" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarDocentePua" type="velocity">/docentesPua.vm</result>
+          	<result name="eliminarCompetenciaGenericaPua" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarCompetenciaEspecificaPua" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarBibliografiaPua" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarActividad" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarAmbiente" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarCriterio" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarEvidencia" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarBibliografiaSubcompetencia" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarPerfilAcad" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarPerfilProf" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarPerfilDoc" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarMaterial" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarEvaluacionCompetenicias" type="velocity">/mensaje.vm</result>
+          	<result name="eliminarEvaluacionFinal" type="velocity">/mensaje.vm</result>
+      	</action>
+      	
+      	<action name="ProcesarLogin" class="pua.net.controlador.ProcesarLogin">
+          <result name="input" type="velocity">/login.vm</result>
+          <result name="error" type="velocity">/login.vm</result>
+          <result name="exito" type="redirect">/panelAcceso.vm</result>
+      	</action>
+      	
+      	<action name="ProcesarLogout" class="pua.net.controlador.ProcesarLogin" method = "logout">
+          <result name="logout">/index.html</result>
+      	</action>
+      	
+      	<action name="FormularioEntrada">
+          <result>/login.vm</result>
+      	</action>
+      	
+      <action name= "grafica" class="pua.net.controlador.GraficarAction">
+      	<result name="reportesPrincipal" type="velocity">/reportesPrincipal.vm</result>
+      	<result name="tablaFacultadDatos" type="velocity">/graficaFacultad.vm</result>
+      	<result name="graficaFacultad" type="stream"></result>
+      	<result name="tablaCarreraDatos" type="velocity">/graficaCarrera.vm</result>
+      	<result name="graficaCarrera" type="stream"></result>
+      	</action>
+      	
+      	<action name="graficaEspecifica" class="pua.net.controlador.GraficaEspecificaAction">
+      	<result name="reportesEspecifica" type="velocity">/reportesEspecifica.vm</result>
+      	<result name="tablaEspecificaDatos" type="velocity">/graficaEspecifica.vm</result>
+      	<result name="vacio" type="velocity">/mensaje.vm</result>
+      	<result name="graficaEspecificaImagen" type="stream"></result>
+      	</action>
+      	
+ 	</package>
+     
+    <package name="restringido" extends="jasperreports-default, struts-default" namespace="/">    
+    	<interceptors>
+        	<interceptor name="LoginInterceptor" class="pua.net.controlador.LoginInterceptor" />
+	        <interceptor-stack name="secureStack">
+	              <interceptor-ref name="LoginInterceptor" />
+	              <interceptor-ref name="defaultStack" />
+	        </interceptor-stack>
+      	 </interceptors>
+      	  
+      	  <default-interceptor-ref name="secureStack" />
+      	  
+      	  <global-results>
+          	<result name="login" type="redirect">/FormularioEntrada.action</result>
+      	  </global-results>
+      	  
+      	 
+    </package>
+</struts>
+
+

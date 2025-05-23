@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.SubcompetenciaAmbiente" table="subcompetencia_ambiente" catalog="pua" optimistic-lock="version">
+        <composite-id name="id" class="pua.hibernate.SubcompetenciaAmbienteId">
+            <key-property name="idSubcompetencia" type="java.lang.Integer">
+                <column name="id_subcompetencia" />
+            </key-property>
+            <key-property name="idAmbiente" type="java.lang.Integer">
+                <column name="id_ambiente" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="ambiente" class="pua.hibernate.Ambiente" update="false" insert="false" fetch="select">
+            <column name="id_ambiente" />
+        </many-to-one>
+        <many-to-one name="subcompetencia" class="pua.hibernate.Subcompetencia" update="false" insert="false" fetch="select">
+            <column name="id_subcompetencia" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

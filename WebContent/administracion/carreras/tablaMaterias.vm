@@ -1,0 +1,73 @@
+ #set($contador = 1)
+#set($opc = 0)
+#foreach($materiaDTO in $listaMateria)
+    	<tr>
+                          <th scope="row">$contador</th>
+	                      <td>
+	                  #if($listaCarrera.size()>0)    
+	                        #foreach($carrera in $listaCarrera)
+        						#if($carrera.idFacultad==$materiaDTO.idMateria)
+								  <button type="button" class="btn btn-danger" data-toggle="button" 
+									 onclick="asignarMateria($carreraDTO.idCarrera,$materiaDTO.idMateria,2)" aria-pressed="false">Remover
+								  </button>
+								  #set($opc = 0)
+								  #break
+        						#else
+        							#set($opc = 1)
+        						#end
+        					#end
+        				#else
+        					<button type="button" class="btn btn-success" data-toggle="button" 
+									 onclick="asignarMateria($carreraDTO.idCarrera,$materiaDTO.idMateria,1)" aria-pressed="false">Asignar&nbsp;&nbsp;
+								  </button>
+        				#end	
+        					#if($opc==1)
+        					 	<button type="button" class="btn btn-success" data-toggle="button" 
+									 onclick="asignarMateria($carreraDTO.idCarrera,$materiaDTO.idMateria,1)" aria-pressed="false">Asignar&nbsp;&nbsp;
+								  </button>
+        					#end
+	                       </td>
+	                       <td>$materiaDTO.nombreMateria</td>
+                          <td>
+        					#foreach($areaDTO in $listaArea)
+        						#if($areaDTO.idArea==$materiaDTO.idArea) $areaDTO.area
+        						#end
+        					#end
+                          </td>
+                           <td>
+        					#foreach($nucleoDTO in $listaNucleo)
+        						#if($nucleoDTO.idNucleo==$materiaDTO.idNucleo) $nucleoDTO.nucleo
+        						#end
+        					#end
+                          </td>
+                          
+                          <td>
+        					#foreach($tipoDTO in $listaTipo)
+        						#if($tipoDTO.idTipo==$materiaDTO.idTipo) $tipoDTO.tipo
+        						#end
+        					#end
+                          </td>
+                          <td>$materiaDTO.art57</td>
+                          <td>$materiaDTO.horasPracticas</td>
+                          <td>$materiaDTO.horasTeoricas</td>
+                          <td>$materiaDTO.horasTotales</td>
+                          <td>$materiaDTO.creditosTotales</td>
+        </tr>
+        #set($contador = $contador+1)
+                          #end
+                          
+                          <tr>
+	                              <th></th>
+	                              <th></th>
+	                              <th><span style="color:white;">________________________________</span></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                              <th></th>
+	                            </tr>

@@ -1,0 +1,6 @@
+<ul class="list-group">
+	#foreach($docenteDTO in $listaDocentePua)
+		<li class="list-group-item">$docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno <button class="close" onClick="eliminarDocentePua($docenteDTO.idDocente)">&times;</button></li>	
+	
+	#end				
+</ul>		

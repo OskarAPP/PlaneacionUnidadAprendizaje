@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="puaReport_subreport1" pageWidth="802" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" isSummaryNewPage="true" uuid="85146ea7-18b3-4ed3-bc14-a28d18f2d0d8">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="525"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="1.0"/>
+		<box>
+			<pen lineWidth="1.0" lineStyle="Solid"/>
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="style2">
+		<pen lineWidth="0.0" lineStyle="Solid"/>
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<leftPen lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style3">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style4">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="listaReporte" class="java.util.List"/>
+	<parameter name="datasource_1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="subReport_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="creditacionCompetencias" class="java.lang.Integer"/>
+	<parameter name="listaEvaluacion" class="java.util.List"/>
+	<parameter name="listaEvaluacionFinal" class="java.util.List"/>
+	<parameter name="subReport_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="datasource_2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="comite" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="comiteDb" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="sesiones" class="java.lang.Integer"/>
+	<field name="numSubcompetencia" class="java.lang.Integer"/>
+	<field name="parcial" class="java.lang.Integer"/>
+	<field name="ponderado" class="java.lang.String"/>
+	<field name="subcompetencia" class="java.lang.String"/>
+	<field name="temas" class="java.lang.String"/>
+	<field name="subtemas" class="java.lang.String"/>
+	<field name="alumno" class="java.lang.String"/>
+	<field name="docente" class="java.lang.String"/>
+	<field name="bibliografia" class="java.lang.String"/>
+	<field name="listaSesiones" class="java.lang.String"/>
+	<field name="material" class="java.lang.String"/>
+	<field name="ponderadoE" class="java.lang.String"/>
+	<field name="criterios" class="java.lang.String"/>
+	<field name="ambiente" class="java.lang.String"/>
+	<field name="evidencia" class="java.lang.String"/>
+	<detail>
+		<band height="101">
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="3" y="9" width="208" height="32" backcolor="#EDE8E2" uuid="04464918-3c85-469e-a0ea-8c7d047591b8"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[     Subcompetencia]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="211" y="9" width="541" height="32" uuid="f2cd7195-0b3e-4953-b9d0-219442d2f037"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subcompetencia}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="658" y="51" width="93" height="30" backcolor="#EDE8E2" uuid="cc92c38b-5971-4dd9-bec2-13c1f9f3b504"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Bibliografía]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="365" y="65" width="146" height="16" backcolor="#EDE8E2" uuid="350524cd-b1ab-4efa-bb05-8ce32ada235c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Docente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="511" y="65" width="147" height="16" backcolor="#EDE8E2" uuid="92b8ae29-c6f0-4978-a4de-a17e1d6c7858"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Alumno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="365" y="51" width="293" height="14" backcolor="#EDE8E2" uuid="c96211ea-9033-4dc9-890c-9419b528f23a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Actividades]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="3" y="51" width="59" height="30" backcolor="#EDE8E2" uuid="176bcd1d-a00d-495f-9a9f-5ef6e8bbe217"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Sesiones]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="62" y="51" width="124" height="30" backcolor="#EDE8E2" uuid="5aa3b0d6-a6ef-4396-bf88-1e9fce876e46"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Temas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="186" y="51" width="179" height="30" backcolor="#EDE8E2" uuid="ce28cee9-cb44-4d67-afd7-5579e057b586"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Subtemas]]></text>
+				</staticText>
+			</elementGroup>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="3" y="81" width="59" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="b7f57ae4-8f3d-40d4-9278-9139ff175797"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sesiones}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="62" y="81" width="124" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="3a37e0da-ccf4-4d92-9d62-ef9a1af845e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{temas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="365" y="81" width="146" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="90004186-0596-472f-b146-90a4b189fcc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="658" y="81" width="93" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="5fc30bac-78a5-4f27-bb1e-0ebe7a15bc75"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bibliografia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="186" y="81" width="179" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="8caa71b9-3858-4102-8472-5df80921cfed"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtemas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="511" y="81" width="147" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="402c4054-1e72-46b0-a7cb-a5aac3db00d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="65">
+			<elementGroup>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="628" y="1" width="124" height="44" backcolor="#EDE8E2" uuid="4b033f01-0176-436c-b377-48b87db97968"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Materiales y recursos didácticos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="3" y="1" width="501" height="14" backcolor="#EDE8E2" uuid="e40255a5-173f-476c-99d0-fc6ecac01393"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Evaluación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="156" y="15" width="151" height="30" backcolor="#EDE8E2" uuid="3485feab-ea21-4e7a-b51c-ea6320faca04"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Evidencias]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="307" y="15" width="85" height="30" backcolor="#EDE8E2" uuid="3e14b88f-6a9c-4047-a02d-ce1d6d16eeb4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Ponderación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="504" y="1" width="124" height="44" backcolor="#EDE8E2" uuid="a4303453-bd36-4e3a-b62c-6e8ac3eeb064"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Ambiente de trabajo o aprendizaje]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="392" y="15" width="112" height="30" backcolor="#EDE8E2" uuid="c5a52a53-4d67-4301-a6d7-c2553fd479ed"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Ponderación de la SubCompetencia]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Opaque" x="3" y="15" width="153" height="30" backcolor="#EDE8E2" uuid="fb72c58d-25f1-44f2-aaae-7b87e6010076"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Criterios]]></text>
+				</staticText>
+			</elementGroup>
+			<break>
+				<reportElement x="0" y="0" width="802" height="1" uuid="941e8958-210d-480d-a40a-a85581a7c8da"/>
+			</break>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="3" y="45" width="153" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="618082f5-03f7-4135-a469-b92ae44ad553"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{criterios}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="392" y="45" width="112" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="5a02f6a0-a62a-4176-8bc0-7fc440a987cc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ponderado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="156" y="45" width="151" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="968e6b00-88f4-4056-bc89-2cd0093a3a2f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evidencia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="307" y="45" width="85" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="7a311e32-cacf-46ba-bd84-7e7365c9ff99"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ponderadoE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="504" y="45" width="124" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="473a85eb-e555-405c-a7a6-256b1a8a6c56"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ambiente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" x="628" y="45" width="124" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="b40d4ee5-2902-4a54-9c7c-eeabf57daf78"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{material}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="64" width="802" height="1" uuid="402cdb57-e2af-467b-a68e-3f92b71d78e2"/>
+			</break>
+		</band>
+	</detail>
+	<summary>
+		<band height="23">
+			<subreport>
+				<reportElement x="0" y="0" width="752" height="23" uuid="5de45fff-11ff-47a9-bffd-d7775056649e"/>
+				<subreportParameter name="listaEvaluacion">
+					<subreportParameterExpression><![CDATA[$P{listaEvaluacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReport_2">
+					<subreportParameterExpression><![CDATA[$P{subReport_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="listaReporte">
+					<subreportParameterExpression><![CDATA[$P{listaReporte}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="comite">
+					<subreportParameterExpression><![CDATA[$P{comite}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creditacionCompetencias">
+					<subreportParameterExpression><![CDATA[$P{creditacionCompetencias}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="datasource_2">
+					<subreportParameterExpression><![CDATA[$P{datasource_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="listaEvaluacionFinal">
+					<subreportParameterExpression><![CDATA[$P{listaEvaluacionFinal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="comiteDb">
+					<subreportParameterExpression><![CDATA[$P{comiteDb}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{datasource_1}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReport_1}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

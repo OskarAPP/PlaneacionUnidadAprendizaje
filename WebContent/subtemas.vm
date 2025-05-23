@@ -1,0 +1,7 @@
+#set($contadorNumSubtema = 0)
+<ul class="list-group">
+	#foreach($subtemaDTO in $listaSubtemas)
+		<li class="list-group-item">$subtemaDTO.numeroSubtema. $subtemaDTO.subtema <button class="close" onClick="eliminarSubtema($subtemaDTO.idSubtema, $subtemaDTO.idTema)">&times;</button></li>
+		#set($contadorNumSubtema = $subtemaDTO.numeroSubtema)
+	#end	
+</ul>		

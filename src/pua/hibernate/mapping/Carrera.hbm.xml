@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Carrera" table="carrera" catalog="pua" optimistic-lock="version">
+        <id name="idCarrera" type="java.lang.Integer">
+            <column name="id_carrera" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="facultad" class="pua.hibernate.Facultad" fetch="select">
+            <column name="id_facultad" />
+        </many-to-one>
+        <property name="nombreCarrera" type="string">
+            <column name="nombre_carrera" length="250" />
+        </property>
+        <property name="planEstudios" type="java.lang.Integer">
+            <column name="plan_estudios" />
+        </property>
+        <property name="idCoordinador" type="java.lang.Integer">
+            <column name="id_coordinador" />
+        </property>
+        <set name="competenciaesps" table="competenciaesp" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_carrera" />
+            </key>
+            <one-to-many class="pua.hibernate.Competenciaesp" />
+        </set>
+        <set name="materias" table="carrera_materia" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_carrera" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Materia">
+                <column name="id_materia" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

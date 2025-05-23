@@ -1,0 +1,27 @@
+<div class="row">
+
+<div class="col-md-5">
+<table class="table table-striped">
+	<tr>
+		<th> ID </th>
+		<th> Especificas </th>
+		<th> Materias </th>
+	</tr>
+	#set($start = 0)
+	#set($end = $fin)
+	
+	#foreach($i in [$start..$end])
+	<tr>
+	   <td>$numEspecificas.get($i)</td>
+	   <td>$lista.get($i)</td>
+	   <td>$numMateriasE.get($i)</td>
+	</tr>   
+	#end
+	</table>
+	</div>
+	
+		<div class="col-md-7">
+		<img src="graficaEspecifica.action?ancho=550&alto=400&tipoAccion=graficaEspecificaImagen&idFacultad=$idFacultad&idCarrera=$idCarrera" id="imgReporte3">
+		</div>
+	</div>
+

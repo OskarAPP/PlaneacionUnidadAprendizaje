@@ -1,0 +1,489 @@
++<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Bienvenido</title>
+      <link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+      <link rel="stylesheet" href="css/estilo_imprimir.css" type="text/css"/>
+      <link rel="stylesheet" href="css/bootstrap_imprimir.css" type="text/css"/>
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+      <link rel="stylesheet" href="css/select2.min.css" type="text/css"/>
+      <link rel="stylesheet" href="css/animate.css" type="text/css" />
+      <link rel="shortcut icon" href="images/uac.png">
+      <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+      <script src="js/bootstrap.min.js" type="text/javascript"></script>
+      <script src="js/select2.min.js" type="text/javascript"></script>
+      <script src="js/funcionesCRUD.js" type="text/javascript"></script>
+      <script src="js/funcionesGUI.js" type="text/javascript"></script>
+   </head>
+   <script type="text/javascript">
+      $( document ).ready(function() {
+       			//alert("listo");
+       			//$("#divprueba").html("INFORMACION CARGADA");
+       			// AJAX para jalar los temas
+       			
+      });
+   </script>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-4">
+               <div class="form-group">
+                  <img class="img-responsive" src="images/uac_titulo.png">
+               </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+               <div class="form-group">
+                  <br>
+                  <h5>
+                     <p class="text-right"><strong>Programa de unidad Academica</strong></p>
+                  </h5>
+               </div>
+            </div>
+         </div>
+         <!--Titulo escuela -->
+         <div class="row">
+            <div class="col-sm-6">
+               <br>
+               <table class="table table-bordered" style="font-size: 12px">
+                  <tr >
+                  <tr class="active">
+                     <th>Nombre de la facultad o escuela</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>Facultad de $facultadDTO.facultad</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active">
+                     <th>Nombre del Programa Educativo</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>$carreraDTO.nombreCarrera</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active">
+                     <th>Plan de Estudio</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>$carreraDTO.planEstudios</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active">
+                     <th>Nombre de la academia(s) que lo aprobó(aron):</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>$academiaDTO.nombreAcademia</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div class="col-sm-6">
+               <br>
+               <table class="table table-bordered" style="font-size: 12px">
+                  <tr>
+                  <tr>
+                     <th colspan="4" class="active">Nombre de la Unidad de Aprendizaje</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td colspan="4">$materiaDTO.nombreMateria</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active" >
+                     <th>Creditos</th>
+                     <th>Horas Totales</th>
+                     <th>Horas Teoricas</th>
+                     <th>Horas Practias</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td align="center">$materiaDTO.creditosTotales</td>
+                        <td align="center">$materiaDTO.horasTotales</td>
+                        <td align="center">$materiaDTO.horasTeoricas</td>
+                        <td align="center">$materiaDTO.horasPracticas</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active">
+                     <th colspan="2">Area</th>
+                     <th>Nucleo</th>
+                     <th>Tipo</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td align="center" colspan="2">$materiaDTO.area</td>
+                        <td align="center">$materiaDTO.nucleo</td>
+                        <td align="center">$materiaDTO.tipo</td>
+                     </tr>
+                  </tbody>
+                  <tr>
+                  <tr class="active">
+                     <th colspan="4">Unidad de Aprendizaje práctica de acuerdo al art.57 RGA: $materiaDTO.art57</th>
+                  </tr>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <!--Perfil de Egreso -->
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="panel-body">
+                  <table class="table table-bordered" style="font-size: 12px">
+                     <tr>
+                     <tr>
+                        <th colspan="2" style="text-align: center;" class="active">Competencias del Perfil de Egreso del Programa Educativo</th>
+                     </tr>
+                     <tr>
+                        <th class="active" style="line-height: 50px;">Genéricas</th>
+                        <td>
+                           #foreach($genericaDTO in $listaGenericasPua)
+                           $genericaDTO.nombreGenerica <br><br>		
+                           #end
+                     </tr>
+               </div>
+               <tr>
+               <th class="active" style="line-height: 50px;">Específicas</th>
+               <td style="line-height: 15px;">
+               #foreach($especificaDTO in $listaEspecificasPua)
+               $especificaDTO.perfilEspecifica <br><br>
+               #end
+               </td>
+               </tr>
+               <tr>
+               <th class="active" style="line-height: 20px;">Competencias del área de formación</th>
+               <td style="line-height: 20px;">#if($puaDTO.competenciaUda) $puaDTO.competenciaUda #end</td>
+               </tr>
+               <tr>
+               <th class="active" style="line-height: 20px;">Competencias de la Unidad de Aprendizaje</th>
+               <td>#if($puaDTO.competenciaFormacion) $puaDTO.competenciaFormacion #end</td>
+               </tr>
+               </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+      <!--Subcompetencias -->
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="panel-body">
+               #foreach ($subcompetenciaDTO in $listaSubcompetencias)
+               <table class="table table-bordered" style="font-size: 12px;">
+                  <tr>
+                  <tr>
+                     <th class="active" style="line-height: 50px;">Subcompetencia</th>
+                     <td style="line-height: 30px;" >$subcompetenciaDTO.subcompetencia</td>
+                  </tr>
+                  </tr>
+               </table>
+               <table class="table table-bordered" style="font-size: 12px;">
+                  <tr>
+                  <tr>
+                     <th style="text-align: center;" class="active" rowspan="2">Sesiones</th>
+                     <th style="text-align: center;" class="active" rowspan="2">Temas</th>
+                     <th style="text-align: center;" class="active" rowspan="2">Subtemas</th>
+                     <th style="text-align: center;" class="active" colspan="2">Actividades</th>
+                     <th style="text-align: center;" class="active" rowspan="2">Bibliografia</th>
+                  </tr>
+                  <tr>
+                     <th style="text-align: center;" class="active">Docente</th>
+                     <th style="text-align: center;" class="active">Alumno</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>$subcompetenciaDTO.sesiones</td>
+                        <td style="line-height: 30px">	#foreach($temaDTO in $subcompetenciaDTO.listaTemas) $temaDTO.numeroTema .- $temaDTO.tema <br>  #end</td>
+                        <td style="line-height: 30px">	
+                           #foreach($temaDTO in $subcompetenciaDTO.listaTemas)
+                           #foreach($subtemaDTO in $temaDTO.listaSubtema) 
+                           $temaDTO.numeroTema.$subtemaDTO.numeroSubtema .- $subtemaDTO.subtema <br>  
+                           #end
+                           #end 
+                        </td>
+                        <td style="line-height: 30px">#foreach($actividadDTO in $subcompetenciaDTO.listaActividadesAlumno) $actividadDTO.actividad <br>  #end</td>
+                        <td style="line-height: 30px">#foreach($actividadDTO in $subcompetenciaDTO.listaActividadesDocente) $actividadDTO.actividad <br>  #end</td>
+                        <td style="line-height: 30px">#foreach($bibliografiaDTO in $subcompetenciaDTO.listaBibliografia) $bibliografiaDTO.libro <br>  #end</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!--Evidencias -->
+               <table class="table table-bordered" style="font-size: 12px;">
+                  <tr>
+                  <tr>
+                     <th style="text-align: center;" class="active" colspan="4">Evaluacion</th>
+                     <th style="text-align: center;" class="active" rowspan="2">Ambiente de<br> trabajo o <br>aprendizaje</th>
+                     <th style="text-align: center;" class="active" rowspan="2">Materiales y<br> recursos <br>didacticos</th>
+                  </tr>
+                  <tr>
+                     <th style="text-align: center;" class="active">Criterios</th>
+                     <th style="text-align: center;" class="active">Evidencias</th>
+                     <th style="text-align: center;" class="active">Ponderacion</th>
+                     <th style="text-align: center;" class="active">Ponderacion<br> de la<br> Sub-<br>Competencia</th>
+                  </tr>
+                  </tr>
+                  <tbody>
+                     <tr>
+                        <td  style="line-height: 30px; width:150px">#foreach($criterioDTO in $subcompetenciaDTO.listaCriterios) • $criterioDTO.criterio<br> #end</td>
+                        <td style="line-height: 30px; width:300px;">#foreach($evidenciaDTO in $subcompetenciaDTO.listaEvidencia) • $evidenciaDTO.evidencia<br> #end</td>
+                        <td style="line-height: 30px; width:60px;">
+                           #foreach($evidenciaDTO in $subcompetenciaDTO.listaEvidencia) 
+                           #if($evidenciaDTO.evidencia.length()>30)	
+                           $evidenciaDTO.ponderacion% <br><br>	
+                           #else
+                           $evidenciaDTO.ponderacion% <br>
+                           #end
+                           #end
+                        </td>
+                        <td style="line-height: 30px; text-align: center; width:60px;">$subcompetenciaDTO.ponderacion%</td>
+                        <td style="line-height: 30px;width:90px;">#foreach($ambienteDTO in $subcompetenciaDTO.listaAmbiente) •  $ambienteDTO.ambiente<br> #end</td>
+                        <td style="line-height: 25px; width:90px;">#foreach($materialDTO in $subcompetenciaDTO.listaMaterial) • $materialDTO.material<br> #end</td>
+                     </tr>
+                  </tbody>
+               </table>
+               #set($contadorNumSub = $subcompetenciaDTO.numSubcompetencia)
+               #set($ponderacionDisponible = $ponderacionDisponible - $subcompetenciaDTO.ponderacion)
+               #end
+               #set($NuevoNumSub = $contadorNumSub + 1)
+            </div>
+         </div>
+      </div>
+      <!--Bibliografia -->
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title" style="text-align: center;">Bibliografia Sugerida</h3>
+         </div>
+         <div class="panel-body">
+            #foreach($libroDTO in $listaBibliografia)
+            <div class="list-group-item">
+               <span class="badge">$libroDTO.tipoBibliografia</span>
+               <h5 class="list-group-item-heading">$libroDTO.libro</h5>
+               <p class="list-group-item-text">
+                  $libroDTO.autorPrincipal, 
+                  <em>$libroDTO.editorial</em>
+               </p>
+            </div>
+            #end
+         </div>
+      </div>
+      <!--Detalles Subcompetencia -->
+      <table class="table table-bordered">
+         <tr>
+         <tr>
+            <th class="active" scope="col" style="text-align: center;">Subcompetencias</th>
+            <th class="active" scope="col"style="text-align: center;">Reporte de evaluación</th>
+            <th class="active" scope="col"style="text-align: center;">Sesiones</th>
+            <th class="active" scope="col"style="text-align: center;">Ponderacion</th>
+         </tr>
+         </tr>
+         <tbody>
+            <tr>
+               #foreach ($subcompetenciaDTO in $listaSubcompetencias)
+               <td style="text-align:center;">
+                  #if($subcompetenciaDTO.numSubcompetencia==1)
+                  Primera
+                  #elseif($subcompetenciaDTO.numSubcompetencia==2)
+                  Segunda
+                  #elseif($subcompetenciaDTO.numSubcompetencia==3)
+                  Tercera
+                  #elseif($subcompetenciaDTO.numSubcompetencia==4)
+                  Cuarta
+                  #elseif($subcompetenciaDTO.numSubcompetencia==5)
+                  Quinta
+                  #elseif($subcompetenciaDTO.numSubcompetencia==6)
+                  Sexta
+                  #elseif($subcompetenciaDTO.numSubcompetencia==7)
+                  Septima
+                  #elseif($subcompetenciaDTO.numSubcompetencia==8)
+                  Octava
+                  #end					
+               </td>
+               <td style="text-align: center;">$subcompetenciaDTO.parcial parcial	</td>
+               <td style="text-align: center;">$subcompetenciaDTO.sesiones</td>
+               <td style="text-align: center;">$subcompetenciaDTO.ponderacion%</td>
+            </tr>
+            #set($contadorNumSub = $subcompetenciaDTO.numSubcompetencia)
+            #set($ponderacionDisponible = $ponderacionDisponible - $subcompetenciaDTO.ponderacion)
+            #end
+            #set($NuevoNumSub = $contadorNumSub + 1)
+         </tbody>
+      </table>
+      
+      <!--Evidencia Final-->
+      
+       <table class="table table-bordered">
+      
+         <tr>
+         <tr>
+            <th class="active" scope="col" style="text-align: center;">Instrumentos de evaluacion Final</th>
+            <th class="active" scope="col"style="text-align: center;">Ponderacion</th>
+            
+
+         </tr>
+         </tr>
+         <tbody>
+               #foreach($evaluacionFinalDTO in $listaEvaluacionFinal)
+               #if($evaluacionFinalDTO.ponderacion1==0)
+               	   	
+               	   #else
+               	   	 <tr>    
+	               	   <td style="text-align:center;">$evaluacionFinalDTO.evaluacion</td>
+	               	   <td style="text-align: center;">$evaluacionFinalDTO.ponderacion1%</td>
+	               	 </tr>    
+				#end  	   		           
+          #end
+         </tbody>
+      </table>
+      
+      <!--Evidencia Competencias-->
+      
+       <table class="table table-bordered">
+      
+         <tr>
+         <tr>
+            <th class="active" scope="col" style="text-align: center;">Evidencia de la evaluación por competencias</th>
+            <th class="active" scope="col"style="text-align: center;">Ponderación</th>
+            
+
+         </tr>
+         </tr>
+         <tbody>
+                 
+               #foreach($evaluacionDTO in $listaEvaluacion)
+                 #if($evaluacionDTO.ponderacion1==0)
+               	   	
+               	   #else
+               	   	 <tr>    
+	               	   <td style="text-align:center;">$evaluacionDTO.evaluacion</td>
+	               	   <td style="text-align: center;">$evaluacionDTO.ponderacion1%</td>
+	               	 </tr>
+               	   #end   
+               #end              	   		
+         </tbody>
+      </table>
+      
+      
+      
+      
+      <table class="table table-bordered" style="font-size: 12px;">
+         
+            <th class="active" style="width:600px">El Programa de la Unidad de Aprendizaje puede acreditarse por demostracion de
+               competencias
+            </th>
+            <td style="line-height: 30px;" >
+               #if($materiaDTO.art57 == 'NO')
+               SI
+               #else
+               NO
+               #end	
+              </td>
+         </tr>
+      </table>
+      <!--Perfil del Docente -->
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title" style="text-align: center;">Perfil del Docente</h3>
+         </div>
+         <div class="panel-body">
+            Academicos
+            <ol>
+               #foreach($perfilDTO in $listaPerfiles)
+               <li>$perfilDTO.perfil</li>
+               #end
+            </ol>
+            Profesionales
+            <ol>
+               #foreach($perfilDTO in $listaPerfilesProfesionales)
+               <li>$perfilDTO.perfil</li>
+               #end	
+            </ol>
+            Docentes
+            <ol>
+               #foreach($perfilDTO in $listaPerfilesDocentes)
+               <li>$perfilDTO.perfil</li>
+               #end	
+            </ol>
+         </div>
+      </div>
+      <!--Comite Curricular-->
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="panel-body">
+               <table class="table table-bordered" style="font-size: 12px">
+                  <tr>
+                  <tr>
+                     <th colspan="2" style="text-align: center;" class="active">Comite Curricular</th>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Nombre y firma de los docentes que participaron en su<br> elaboración</th>
+                     <td>#foreach($docenteDTO in $listaDocentePua)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno <br><br>
+                        #end		
+                     </td>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Nombre y firma del Presidente y/o Secretario de la <br>Academia; o en su caso, del responsable del comité<br> Curricular</th>
+                     <td>Presidente:#foreach($docenteDTO in $listaPresidenteAcademia)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno <br><br> 
+                        #end
+                        Secretario:  #foreach($docenteDTO in $listaSecretarioAcademia)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno
+                        #end
+                     </td>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Nombre y firma del coordinador de carrera</th>
+                     <td> #foreach($docenteDTO in $listaCoordinador)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno
+                        #end<br><br>
+                     </td>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Nombre y firma del Secretario Académico</th>
+                     <td> #foreach($docenteDTO in $listaSecretarioAcademico)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno
+                        #end<br><br>
+                     </td>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Nombre y firma del Director de la Facultad o Escuela</th>
+                     <td> #foreach($docenteDTO in $listaDirector)
+                        $docenteDTO.prefijo $docenteDTO.nombre $docenteDTO.apellidoPaterno $docenteDTO.apellidoMaterno
+                        #end<br><br>
+                     </td>
+                  </tr>
+                  <tr>
+                     <th class="active" style="line-height: 20px;">Fecha de Elaboracion o Modificacion</th>
+                     <td>
+                        <input type="text" style="border : 0;" name="fecha" id="fecha" value="fecha">
+                        <script>
+                           var f = new Date();
+                           var g = f.getDate() + "/" + (f.getMonth()+1) + "/" + f.getFullYear();
+                           $('#fecha').val(g);
+                        </script>
+                        <br>
+                     </td>
+                  </tr>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

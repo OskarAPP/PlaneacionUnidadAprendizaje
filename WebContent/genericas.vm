@@ -1,0 +1,8 @@
+<ul class="list-group anima">
+	#foreach($genericaDTO in $listaGenericasPua)
+		<li class="list-group-item">
+			$genericaDTO.nombreGenerica
+			<button class="close" onclick="eliminarGenericaPua($genericaDTO.idPua, $genericaDTO.idGenerica)">&times;</span></button>
+		</li>
+	#end
+</ul>

@@ -1,0 +1,38 @@
+			#set($c= 0)
+			#foreach($accesoDTO in $docenteDTO.listaAcceso)
+                	<div class="row">
+                		<div class="col-md-4 col-sm-4">
+               				<div class="input-group">
+            					<span class="input-group-addon">$accesoDTO.rol</span>
+                            	 #if($accesoDTO.estado==1)
+                                <input type="button" class="form-control btn btn-warning" data-toggle="button" value="Restringir&nbsp;"
+                                 onclick="cambiarEstado($docenteDTO.idDocente,0,$accesoDTO.idAcceso)" aria-pressed="false">
+                              #elseif($accesoDTO.estado==0)
+                              	<input type="button" class="form-control btn btn-success" data-toggle="button" value="Permitir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                              	onclick="cambiarEstado($docenteDTO.idDocente,1,$accesoDTO.idAcceso)" aria-pressed="false">
+                              #end         
+                              </div>
+                              <br>
+                         </div>
+                        #if($accesoDTO.rol!="docente")
+                         <div class="col-md-2 col-sm-2">
+                          <input type="button" class="form-control btn btn-danger" data-toggle="button" value="Eliminar acceso"
+                                  	onclick="eliminarAcceso($accesoDTO.idAcceso, $docenteDTO.idDocente)" aria-pressed="false">
+                          </div>
+                         #end 
+                          #if($isAdministrador==false && $c==0)
+			                <form action="Administrador.action" method="post">
+			                    <div class="col-md-2 col-sm-4">
+			                        <div class="form-group">
+			                        	<input type="hidden" name="tipoAccion" id="update" value="addAcceso">
+			                        	<input type="hidden" name="docenteDTO.idDocente" value="$docenteDTO.idDocente">
+			                            <button type="submit" class="form-control  btn btn-primary">
+			                                Hacer Administrador
+			                            </button>
+			                        </div>
+			                    </div>
+		                    </form>
+		                	#end
+		                	#set($c= $c+1)        	
+               		</div>
+                #end

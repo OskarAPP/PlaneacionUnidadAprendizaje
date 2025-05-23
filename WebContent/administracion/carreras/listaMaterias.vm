@@ -1,0 +1,95 @@
+
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/administradorCRUD.js" type="text/javascript"></script>
+    <div class="container">
+    <input type="hidden" id="x" value="carrerasMaterias">
+    <div class="panel panel-success animated">
+        <div class="panel-heading" >
+        <div class="row panel-title">
+         <div class="col-md-1"><button class="btn btn-defalut" onclick="javascript:window.location.reload();"><span class="glyphicon glyphicon-arrow-left"></span></button>
+				</div>
+		<div class="col-md-10"><h3 class="panel-title text-center">$carreraDTO.nombreCarrera</h3></div>
+		
+		</div>
+        </div>
+    </div>
+    
+        <div class="panel panel-primary animated">
+        <div class="panel-heading" >
+				<h3 class="panel-title text-center">Buscar</h3>
+	        </div>
+	        <input type="hidden" id="idCarrera" name="idCarrera" value="$carreraDTO.idCarrera">
+          <div class="panel-body">
+              <div class="row">
+                 <div class="col-md-9">
+                     <div class="form-group">
+                         <label for="">Materia:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                <span class="input-group-text glyphicon glyphicon-search"></span>
+                              </div>
+                              <input type="text" class="form-control" placeholder="Nombre de la Materia" name="nombreMateria" 
+                              onkeyup="tablaCarrerasMaterias()" aria-describedby="basic-addon1" id="nombreMateria">
+                            </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="form-group">
+                       <label for="">Ordenar alfabéticamente por:</label>
+                        <select class="form-control" name="orden" id="orden" onchange="tablaCarrerasMaterias()">
+                            <option value=1>A a Z</option>
+                            <option value=2>Z a A</option>
+                        </select>
+                    </div>
+                 </div>
+          	  </div>
+          </div>
+        </div>
+           <div class="panel panel-info animated">
+			<div class="panel-heading" >
+				<h3 class="panel-title text-center">Lista de materias</h3>
+	        </div>
+            <div class="panel-body">   
+             <div class="row">
+               		<div id="mensaje">
+#if($mensajeR == "exito")
+	<div class="alert alert-success msj-box-success alert-dismissable animated jello">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+		¡Correcto!. Se han guardado los cambios
+	</div>
+	
+#elseif($mensajeR == "fallo")
+	<div class="alert alert-danger msj-box-error alert-dismissable animated tada">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+		¡Error!. $mensaje
+	</div>
+#end
+               		</div>
+               </div>
+                <div class="row">
+	                    <div class="table-responsive">
+	                        <table class="table table-condensed">
+	                          <thead>
+	                            <tr>
+	                              <th>#</th>
+	                              <th></th>
+	                              <th>Materia</th>
+	                              <th>Área</th>
+	                              <th>Núcleo</th>
+	                              <th>Tipo</th>
+	                              <th>Art57</th>
+	                              <th>Horas Practicas</th>
+	                              <th>Horas teóricas</th>
+	                              <th>Horas totales</th>
+	                              <th>Créditos totales</th>
+	                            </tr>
+	                          </thead>
+	                          <tbody id="listaCarrerasMaterias">
+	                          
+	                          </tbody>
+	                        </table>
+	                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>

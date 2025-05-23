@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Material" table="material" catalog="pua" optimistic-lock="version">
+        <id name="idMaterial" type="java.lang.Integer">
+            <column name="id_material" />
+            <generator class="identity" />
+        </id>
+        <property name="material" type="string">
+            <column name="material" length="250" />
+        </property>
+        <set name="subcompetenciaMaterials" table="subcompetencia_material" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_material" />
+            </key>
+            <one-to-many class="pua.hibernate.SubcompetenciaMaterial" />
+        </set>
+    </class>
+</hibernate-mapping>

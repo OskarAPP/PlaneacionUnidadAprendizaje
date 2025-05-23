@@ -1,0 +1,7 @@
+		<label for="academia">Academia:</label>	
+		<select class="form-control" name="idAcademia" id="academia">
+		     <option value=0>Seleccione academia...</option>
+		    #foreach($academiaDTO in $listaAcademia)
+		        <option value=$academiaDTO.idAcademia>$academiaDTO.nombreAcademia</option>
+		    #end
+		</select>

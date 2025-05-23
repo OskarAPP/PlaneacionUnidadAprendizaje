@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="puaReport_subreport3" pageWidth="802" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" isSummaryNewPage="true" uuid="85146ea7-18b3-4ed3-bc14-a28d18f2d0d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="1.0"/>
+		<box>
+			<pen lineWidth="1.0" lineStyle="Solid"/>
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="style2">
+		<pen lineWidth="0.0" lineStyle="Solid"/>
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<leftPen lineColor="#333333"/>
+			<bottomPen lineWidth="1.0" lineColor="#333333"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style3">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style4">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="style5"/>
+	<subDataset name="academicos" uuid="7b6fe690-5b8b-4379-98a1-078c24d3a569">
+		<field name="perfil" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="profesionales" uuid="5bd306c3-4d28-488e-b4cb-0de5074ebc7d">
+		<field name="perfil" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="docentes" uuid="d32779ab-7b6c-4ae8-943e-3567502ce529">
+		<field name="perfil" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="comite" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="comiteDb" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="listaAcademicos" class="java.util.List"/>
+	<field name="listaProfesionales" class="java.util.List"/>
+	<field name="listaDocentes" class="java.util.List"/>
+	<detail>
+		<band height="66">
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="1" width="737" height="15" backcolor="#EDE8E2" uuid="04464918-3c85-469e-a0ea-8c7d047591b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Perfil del docente]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement style="style3" x="10" y="16" width="737" height="50" uuid="de29044e-0e18-4961-9a97-8da44b725ebe"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="academicos" uuid="796b5784-796e-4ef8-a45c-2b23df5474e9">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAcademicos})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<textField isStretchWithOverflow="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="34af332e-d905-4fd2-8f0d-3fe2bbd70240"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{perfil}!=null?" "+$F{perfil}:""]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="10" y="0" width="100" height="20" uuid="5e3f8d3e-595c-4d99-adea-922fb537da7b"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[ACADÉMICOS:]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="50">
+			<componentElement>
+				<reportElement style="style4" x="10" y="0" width="737" height="50" uuid="f7f07a0a-3f3e-4841-abd3-56f596f91730"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="profesionales" uuid="0d9fdcda-461c-49d6-ad49-e8846bbe369a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaProfesionales})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<staticText>
+							<reportElement x="10" y="0" width="119" height="20" uuid="593547db-93a5-4acb-962a-03f24f119530"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[PROFESIONALES:]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="c09b8b4a-b06b-4baa-95f3-3bb67191b914"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{perfil}!=null?" "+$F{perfil}:""]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="50">
+			<componentElement>
+				<reportElement style="style2" x="10" y="0" width="737" height="50" uuid="670ead8c-fa8a-499a-a5d1-6a9825c71f1b"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="docentes" uuid="3a7f4135-1e64-41f6-80c7-bacb422097e3">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDocentes})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="737">
+						<staticText>
+							<reportElement x="10" y="0" width="100" height="20" uuid="963043cc-7562-4a1d-91e0-e6880f617e31"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<text><![CDATA[DOCENTES:]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="10" y="25" width="727" height="20" isPrintWhenDetailOverflows="true" uuid="c582b1e0-d793-483a-adfc-5b0cbf7d7186"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{perfil}!=null?" "+$F{perfil}:""]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="10">
+			<subreport>
+				<reportElement x="0" y="0" width="747" height="10" uuid="3349db39-d35e-4d4b-96cc-f946149c2fc9"/>
+				<subreportParameter name="comiteDb">
+					<subreportParameterExpression><![CDATA[$P{comiteDb}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{comiteDb}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{comite}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

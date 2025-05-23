@@ -1,0 +1,8 @@
+<ul class="list-group anima">
+	#foreach($especificaDTO in $listaEspecificasPua)
+		<li class="list-group-item">
+			$especificaDTO.perfilEspecifica
+			<button class="close" onclick="eliminarEspecificaPua($especificaDTO.idPua, $especificaDTO.idEspecifica)">&times;</span></button>	
+		</li>
+	#end
+</ul>

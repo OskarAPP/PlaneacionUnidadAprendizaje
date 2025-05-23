@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comite" pageWidth="802" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" uuid="85146ea7-18b3-4ed3-bc14-a28d18f2d0d8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="17"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="1.0"/>
+		<box>
+			<pen lineWidth="1.0" lineStyle="Solid"/>
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="style2">
+		<pen lineWidth="0.0" lineStyle="Solid"/>
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<leftPen lineColor="#333333"/>
+			<bottomPen lineWidth="1.0" lineColor="#333333"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style3">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="style4">
+		<box>
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="style5"/>
+	<field name="director" class="java.lang.String"/>
+	<field name="secretario" class="java.lang.String"/>
+	<field name="coordinador" class="java.lang.String"/>
+	<field name="academia" class="java.lang.String"/>
+	<field name="docente" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement style="style1" mode="Opaque" x="10" y="0" width="737" height="15" backcolor="#EDE8E2" uuid="16f2319f-02ab-466c-a8d8-356f30bc54b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Comité Curricular]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="29" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="2db593af-3002-41e2-ad2f-c037c42c4027"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Nombre y firma de los docentes que participaron en la "+"\n      elaboración"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="29" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="0a69ed9c-5f01-4f98-b91c-77477b42b934"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docente}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="29">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="29" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="574474f5-f51f-43b4-86b4-b6cb423afc94"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Nombre y firma del Presidente y/o Secretario de la Academia;"+"\n      o en su caso, del responsable del Comité Curricular"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="29" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="a4d26c5a-9b5b-45c6-aa1a-9914cd383057"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{academia}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="18">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="f0827627-ddaf-4039-a808-2f630dd501e7"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Nombre y firma del Coordinador de Carrera"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="aca3b403-abec-4d6d-baec-2b22bbaa1971"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{coordinador}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="21">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="21" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="ce9babef-8853-4b46-8849-612406e87524"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Nombre y firma del Secretario de Académico"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="21" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="f776aaf4-edf2-4d1d-abac-f09c1b77f5c8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{secretario}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="18">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="ae93929f-a5eb-46dc-a9ad-d93227ae04d8"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Nombre y firma del Director de la Facultad o Escuela"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="e54075f3-3bd3-4230-873d-9ef6e0e55703"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{director}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="10" y="0" width="378" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#EDE8E2" uuid="f512b27f-2599-4513-a88b-96858631b253"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     Fecha de elaboración o modificación"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="388" y="0" width="359" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="2f3758c8-e4f9-4747-96f9-07f97716f9b5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

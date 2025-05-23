@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.TipoDocente" table="tipo_docente" catalog="pua" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idTipo" type="int">
+            <column name="idTipo" not-null="true" />
+        </property>
+        <property name="idDocente" type="int">
+            <column name="id_docente" not-null="true" />
+        </property>
+        <property name="idFacultad" type="java.lang.Integer">
+            <column name="idFacultad" />
+        </property>
+        <property name="idCarrera" type="java.lang.Integer">
+            <column name="idCarrera" />
+        </property>
+        <property name="idAcademia" type="java.lang.Integer">
+            <column name="idAcademia" />
+        </property>
+    </class>
+</hibernate-mapping>

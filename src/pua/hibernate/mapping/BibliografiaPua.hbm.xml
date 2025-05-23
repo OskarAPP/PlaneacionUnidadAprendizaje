@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.BibliografiaPua" table="bibliografia_pua" catalog="pua" optimistic-lock="version">
+        <composite-id name="id" class="pua.hibernate.BibliografiaPuaId">
+            <key-property name="idPua" type="java.lang.Integer">
+                <column name="id_pua" />
+            </key-property>
+            <key-property name="idLibro" type="java.lang.Integer">
+                <column name="id_libro" />
+            </key-property>
+            <key-property name="idTipoBibliografia" type="java.lang.Integer">
+                <column name="id_tipo_bibliografia" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="libro" class="pua.hibernate.Libro" update="false" insert="false" fetch="select">
+            <column name="id_libro" />
+        </many-to-one>
+        <many-to-one name="pua" class="pua.hibernate.Pua" update="false" insert="false" fetch="select">
+            <column name="id_pua" />
+        </many-to-one>
+        <many-to-one name="tipobib" class="pua.hibernate.Tipobib" update="false" insert="false" fetch="select">
+            <column name="id_tipo_bibliografia" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

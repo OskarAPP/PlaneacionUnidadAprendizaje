@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Competenciaesp" table="competenciaesp" catalog="pua" optimistic-lock="version">
+        <id name="idEspecifica" type="java.lang.Integer">
+            <column name="id_especifica" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="carrera" class="pua.hibernate.Carrera" fetch="select">
+            <column name="id_carrera" />
+        </many-to-one>
+        <property name="competenciaEspecifica" type="string">
+            <column name="competencia_especifica" length="250" />
+        </property>
+        <set name="puas" table="pua_competenciaesp" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_especifica" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Pua">
+                <column name="id_pua" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

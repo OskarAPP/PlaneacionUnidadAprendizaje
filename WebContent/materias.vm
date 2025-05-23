@@ -1,0 +1,6 @@
+<option value="0">Seleccione una materia...</option>
+#foreach($materiaDTO in $listaMateria)
+    <option value=$materiaDTO.idMateria>$materiaDTO.nombreMateria</option>
+#end
+
+	

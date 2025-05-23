@@ -1,0 +1,8 @@
+<ul class="list-group anima">
+	#foreach($materialDTO in $listaMaterialesSub)
+		<li class="list-group-item">
+			<button class="close" onclick="eliminarMaterial($materialDTO.idSubcompetencia, $materialDTO.idMaterial)">&times;</span></button>
+			$materialDTO.material
+		</li>
+	#end
+</ul>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Docente" table="docente" catalog="pua" optimistic-lock="version">
+        <id name="idDocente" type="java.lang.Integer">
+            <column name="id_docente" />
+            <generator class="identity" />
+        </id>
+        <property name="prefijo" type="string">
+            <column name="prefijo" length="10" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellido_paterno" length="50" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellido_materno" length="50" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="100" />
+        </property>
+        <set name="puas" table="pua_docente" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_docente" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Pua">
+                <column name="id_pua" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="materias" table="docente_materia" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_docente" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Materia">
+                <column name="id_materia" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="facultads" table="docente_facultad" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_docente" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Facultad">
+                <column name="id_facultad" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="accesos" table="acceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_docente" not-null="true" />
+            </key>
+            <one-to-many class="pua.hibernate.Acceso" />
+        </set>
+    </class>
+</hibernate-mapping>

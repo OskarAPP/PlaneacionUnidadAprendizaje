@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registro de docentes por CSV</title>
+	<link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/select2.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="shortcut icon" href="images/uac.png">
+	
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/select2.min.js" type="text/javascript"></script>
+	<script src="js/administradorCRUD.js" type="text/javascript"></script>
+
+</head>
+<body>
+	#include("administracion/navbar.html")
+	<br><br>
+	<div class="container" id="containerPrincipal">
+		<div class="panel panel-info animated">
+			<div class="panel-heading" >
+				<h3 class="panel-title text-center">Registro de Docentes por CSV</h3>
+	        </div>
+			<div class="panel-body">
+                <form action="Administrador.action" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-ls-12">
+                            <div class="form-group">
+                                <label for="usuarioCampo">Archivo .csv:</label>	
+                                <input type='file' class="form-control" name="archivo" id="archivo" accept="application/xslx, .csv"/>
+                            </div>    	
+                        </div>
+                      </div>   
+                    <div class="row">
+                        <div class="col-md-offset-3  col-lg-6 animated bounceInLeft">
+                            <div class="form-group">								
+                                <input type="hidden" name="tipoAccion" id="tipoAccion" value="insertarDocenteCSV">
+                                <button type="submit"  class="form-control btn btn-primary">Registrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        #if($mensaje)
+                            <div class="alert alert-danger">
+                                <strong>Fallo!</strong> $mensaje
+                            </div>
+                        #end	
+                        #if($exito)
+                            <div class="alert alert-success">
+                                <strong>Exito!</strong> $exito
+                            </div>
+                        #end
+                        #if($alerta)
+                            <div class="alert alert-danger">
+                                <strong>Fallo!</strong> $alerta
+                            </div>
+                        #end	
+                    </div>
+                  </div>
+	        </div>
+		</div>
+		
+	
+	</div>
+	#include("footer.html")
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido</title>
+	<link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/select2.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="shortcut icon" href="images/uac.png">
+
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/select2.min.js" type="text/javascript"></script>
+	<script src="js/funcionesCRUD.js" type="text/javascript"></script>
+	<script src="js/funcionesGUI.js" type="text/javascript"></script>
+</head>
+<body style="background-color: rgb(115, 115, 115);">
+	<div class="container">
+		<div class="menu-principal animated zoomIn">
+			<div class="row">
+				<div class="col-lg-6 animated bounceInLeft">
+					<img alt="" src="images/uac_pua_inverse.png">
+				</div>
+				
+				<div class="col-lg-6 animated bounceInRight btns-menus">
+					<a class="btn btn-primary" href="FormularioEntrada.action">Crear pua</a>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"  aria-expanded="false">
+					    Estadísticas
+					  </button>
+					  <div class="dropdown-menu">
+					    <li><a class="dropdown-item" href="grafica.action">Genericas</a></li>
+					    <li><a class="dropdown-item" href="graficaEspecifica.action">Especificas</a></li>
+						</div>
+					</div>
+					<a class="btn btn-primary" href="PuaVersion.action">Ver pua</a>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</body>	
+</html>

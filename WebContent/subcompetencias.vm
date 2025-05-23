@@ -1,0 +1,352 @@
+#set($contadorNumSub = 0)
+
+<div class="panel-group" id="accordion" role="tablist">
+
+#foreach ($subcompetenciaDTO in $listaSubcompetencias)
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-right">
+        <button type="button" class="close" onclick="eliminarSubcompetencia($subcompetenciaDTO.idSubcompetencia)"><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+      <h4 class="panel-title">
+        <a href="#subcompetencia$subcompetenciaDTO.numSubcompetencia" data-toggle="collapse" data-parent="#accordion">
+          Subcompetencia $subcompetenciaDTO.numSubcompetencia
+        </a>
+      </h4>
+    </div>
+
+    <div id="subcompetencia$subcompetenciaDTO.numSubcompetencia" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+
+          <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#tabinfode$subcompetenciaDTO.numSubcompetencia" aria-controls="tabinfode$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab">
+                  Información
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tabtemasy_actividadesde$subcompetenciaDTO.numSubcompetencia" aria-controls="tabtemasy_actividadesde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerTemas($subcompetenciaDTO.idSubcompetencia)">
+                  Temas, Actividades y Bibliografia
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tabevaluacion_ambientesde$subcompetenciaDTO.numSubcompetencia" aria-controls="tabevaluacion_ambientesde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerCriterios($subcompetenciaDTO.idSubcompetencia)">
+                  Evaluación, Ambientes y Materiales
+                </a>
+              </li>
+            </ul>
+
+          <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="tabinfode$subcompetenciaDTO.numSubcompetencia">
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="descripcion">Descripción de la Subcompetencia:</label>
+                      <textarea class="form-control popovers" id="descripcionSub$subcompetenciaDTO.idSubcompetencia" rows="3" name="subcompetenciaDTO.subcompetencia" onfocus="popovers()">$subcompetenciaDTO.subcompetencia</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="numSesiones">Sesiones:</label>
+                      <input type="number" class="form-control popovers" id="sesiones$subcompetenciaDTO.idSubcompetencia" name="subcompetenciaDTO.sesiones" min="1" step="1" value="$subcompetenciaDTO.sesiones" onfocus="popovers()">
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="ponderacion">Ponderacion</label>
+                      <input type="number" class="form-control popovers" id="ponderacion$subcompetenciaDTO.idSubcompetencia" name="subcompetenciaDTO.ponderacion" min="1" step="1" value="$subcompetenciaDTO.ponderacion" onfocus="popovers()">
+                    </div>
+                  </div>
+                  
+                   <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="numsub">Número de Subcompetencia</label>
+                  	  <input type="text" class="form-control" readonly id="numsub$subcompetenciaDTO.idSubcompetencia" value="$subcompetenciaDTO.numSubcompetencia">
+                    </div>
+                  </div>
+                  
+                   <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="numPar">Parcial</label>
+                  	  <select class="form-control"  id="numPar$subcompetenciaDTO.idSubcompetencia">
+                  	  	<option value="1" > 1 </option>
+                  	  	<option value="2" #if($subcompetenciaDTO.parcial == 2) selected #end> 2 </option> 
+                  	  </select>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div class="row">
+                	<div class="col-md-12 text-right">
+                		<button type="button" class="close" onclick="guardarCambiosSubcompetencia($subcompetenciaDTO.idSubcompetencia, $subcompetenciaDTO.numSubcompetencia)"><span class="glyphicon glyphicon-ok"></span></button>
+                	</div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade" id="tabtemasy_actividadesde$subcompetenciaDTO.numSubcompetencia">
+                <div class="row">
+                  <div class="col-md-3">
+                    <br>
+                    <div class="list-group">
+
+                        <a href="#tabtemasde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabtemasde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerTemas($subcompetenciaDTO.idSubcompetencia)">
+                          Temas
+                        </a>
+
+                        <a href="#tabactividadesde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabactividadesde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerActividades($subcompetenciaDTO.idSubcompetencia)">
+                          Actividades
+                        </a>
+
+                        <a href="#tabbibliografiade$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabbibliografiade$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerBibliografiaSubcompetencia($subcompetenciaDTO.idSubcompetencia)">
+                          Bibliografía
+                        </a>
+
+                    </div>
+                  </div>
+
+                  <div class="col-md-9">
+                    <br>
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane fade in active" id="tabtemasde$subcompetenciaDTO.numSubcompetencia">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="modal" onclick="mostrarModalTema($subcompetenciaDTO.idSubcompetencia)">
+                              Nuevo tema...
+                            </button>
+                          </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div id="temasde$subcompetenciaDTO.idSubcompetencia" class="">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="tabactividadesde$subcompetenciaDTO.numSubcompetencia">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="modal" onClick="mostrarModalActividad($subcompetenciaDTO.idSubcompetencia)">
+                              Nueva actividad...
+                            </button>
+                          </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div id="actividadesde$subcompetenciaDTO.idSubcompetencia" class=""><br>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="tabbibliografiade$subcompetenciaDTO.numSubcompetencia">
+                        <script type="text/javascript">
+				          $(".seleccionBibliografia").select2({
+				          	placeholder: "Seleccione libro...",
+				          	allowClear: true
+				          });
+				        </script>
+        				
+        				<div class="row">
+        					<div class="col-md-5">
+        						<select id="seleccionBibliografia$subcompetenciaDTO.idSubcompetencia" class="seleccionBibliografia" style="width: 340px;">
+			        	    		<option value=""></option>
+			                			#foreach($libroDTO in $listaBibliografia)
+			                  				<option value="$libroDTO.idLibro">$libroDTO.libro</option>
+			                			#end
+			         			</select>			         			
+        					</div>
+        					
+        					<div class="col-md-1">
+        						<button type="button" class="btn btn-primary" onclick="agregarBibliografiaSubcompetencia($subcompetenciaDTO.idSubcompetencia)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+        					</div>
+        					
+        					<div class="col-md-6">
+        						<div id="bibliografiadesubcomp$subcompetenciaDTO.idSubcompetencia">
+        						</div>
+        					</div>
+        				</div>
+	   		
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade" id="tabevaluacion_ambientesde$subcompetenciaDTO.numSubcompetencia">
+                <div class="row">
+                  <div class="col-md-3">
+
+                    <br>
+
+                    <div class="list-group">
+                        <a href="#tabcriteriosde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabcriteriosde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerCriterios($subcompetenciaDTO.idSubcompetencia)">
+                          Criterios
+                        </a>
+
+                        <a href="#tabevidenciasde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabevidenciasde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerEvidencias($subcompetenciaDTO.idSubcompetencia)">
+                          Evidencias
+                        </a>
+
+                        <a href="#tabambientesde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabambientesde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerAmbientesSubcompetencia($subcompetenciaDTO.idSubcompetencia)">
+                          Ambiente de trabajo o aprendizaje
+                        </a>
+
+                        <a href="#tabmaterialesde$subcompetenciaDTO.numSubcompetencia" class="list-group-item" aria-controls="tabmaterialesde$subcompetenciaDTO.numSubcompetencia" role="tab" data-toggle="tab" onclick="obtenerMateriales($subcompetenciaDTO.idSubcompetencia)">
+                          Materiales y recursos didácticos
+                        </a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-9">
+
+                    <br>
+
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane fade in active" id="tabcriteriosde$subcompetenciaDTO.numSubcompetencia">
+                        <div class="row">
+	                        <div class="col-md-2">
+	                        	<button type="button" class="btn btn-default btn-xs" data-toggle="modal" onclick="mostrarModalCriterios($subcompetenciaDTO.idSubcompetencia)">Nuevo criterio</button>
+	                        </div>
+	                        <div class="col-md-10">
+		                        <div id="criteriosde$subcompetenciaDTO.idSubcompetencia">
+		
+		                        </div>
+	                        </div>
+                        </div>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="tabevidenciasde$subcompetenciaDTO.numSubcompetencia">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="button" id="" class="btn btn-default btn-xs" data-toggle="modal" onclick="mostrarModalEvidencias($subcompetenciaDTO.idSubcompetencia, $subcompetenciaDTO.ponderacion)">
+                              Nueva evidencia...
+                            </button>
+                          </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div id="evidenciasde$subcompetenciaDTO.idSubcompetencia">
+	
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="tabambientesde$subcompetenciaDTO.numSubcompetencia">
+                        <script type="text/javascript">
+                          jQuery(".js-example-basic-multiple").select2({
+                            placeholder: "Seleccione..."
+                          });
+                        </script>
+						<div class="row">
+							<div class="col-lg-12">
+								<label>Ambientes de trabajo o aprendizaje</label>
+							</div>
+						</div>
+                        <div class="row">
+                          <div class="col-md-5">
+                            <select class="js-example-basic-multiple form-control" id="select2Ambientesde$subcompetenciaDTO.idSubcompetencia" multiple="multiple"  style="width: 350px;">
+                              #foreach($ambienteDTO in $listaAmbientes)
+                                <option value="$ambienteDTO.idAmbiente">$ambienteDTO.ambiente</option>
+                              #end
+                            </select>
+                          </div>
+
+                          <div class="col-md-1">
+                            <button type="button" class="btn btn-primary" onclick="insertarAmbiente($subcompetenciaDTO.idSubcompetencia)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                          </div>
+
+                          <div class="col-md-6">
+							<div id="ambientesde$subcompetenciaDTO.idSubcompetencia">
+								
+							</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="tabmaterialesde$subcompetenciaDTO.numSubcompetencia">
+						<script type="text/javascript">
+                          jQuery(".js-example-basic-multiple").select2({
+                            placeholder: "Seleccione..."
+                          });
+                        </script>
+						
+						<div class="row">
+							<div class="col-lg-12">
+								<label>Materiales y recursos didácticos</label>
+							</div>
+						</div>
+                        <div class="row">
+                          <div class="col-md-5">
+		                  	<select class="js-example-basic-multiple form-control" id="select2Materialesde$subcompetenciaDTO.idSubcompetencia" multiple="multiple"  style="width: 350px;">
+		                    	#foreach($materialDTO in $listaMateriales)
+		                           <option value="$materialDTO.idMaterial">$materialDTO.material</option>
+		                         #end
+		                   	</select>
+                          </div>
+
+                          <div class="col-md-1">
+                          	<button type="button" class="btn btn-primary" onclick="insertarMaterial($subcompetenciaDTO.idSubcompetencia)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                          </div>
+
+                          <div class="col-md-6">
+							<div id="materialesde$subcompetenciaDTO.idSubcompetencia">
+								
+							</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  #set($contadorNumSub = $subcompetenciaDTO.numSubcompetencia)
+  #set($ponderacionDisponible = $ponderacionDisponible - $subcompetenciaDTO.ponderacion)
+#end
+</div>
+#set($NuevoNumSub = $contadorNumSub + 1)
+
+
+
+<div class="row">
+	<div class="col-md-6">
+		<button type="button" class="btn btn-default btn-xs" onclick="generarSubcompetencia($NuevoNumSub)">Generar subcompetencia...</button> 
+				<button type="button" class="btn btn-default btn-xs" onclick="imprimirPua()"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
+				
+			<form action="ProcesarPua.action" method="post" class="btn btn-success btn-xs">	
+				<input type="hidden" value="finalizarPua" name="tipoAccion" id="tipoAccion">
+				<input type="hidden" value="$idPua" name="idPua" id="idPua">
+				<button type="submit" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span> Finalizar</button>
+			</form>	
+	</div>
+	
+</div>

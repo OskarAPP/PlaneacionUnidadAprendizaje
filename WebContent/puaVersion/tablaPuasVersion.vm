@@ -1,0 +1,18 @@
+#set($contador = 1)
+#set($idVersion = 1)
+	#foreach($pua in $listaPuaVersion)
+    	<tr>
+	        <th scope="row">$contador</th>
+	    	<td>$pua.materia</td>
+	        <td>$pua.pua.planEstudio</td>
+	        <td>$pua.version</td>
+	        <td>
+	        <form action="PuaVersion.action" method="post">
+	        <input type="hidden" name="tipoAccion" value="downloadPua">
+	        <input type="hidden" name="idPua" value="$pua.id">
+			  <button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"></span>Descargar</button>
+			  </form>
+	        </td>
+        </tr>
+	#set($contador = $contador+1)
+#end

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registro de Materias</title>
+	<link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/select2.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="shortcut icon" href="images/uac.png">
+	
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/select2.min.js" type="text/javascript"></script>
+	<script src="js/administradorCRUD.js" type="text/javascript"></script>
+
+</head>
+<body>
+	#include("administracion/navbar.html")
+	<br><br>
+	<div class="container" id="containerPrincipal">
+		<div class="panel panel-primary animated">
+			<div class="panel-heading" >
+				<h3 class="panel-title text-center">Materia</h3>
+	        </div>
+			<div class="panel-body">
+                <form action="Administrador.action" method="post">
+                <input type="hidden" name="tipoAccion" id="materia" value="insertarMateria">
+                <input type="hidden" id="tipo" value="5">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-5 col-ls-4">
+                            <div class="form-group">
+                                <label for="usuarioCampo">Materia:</label>	
+                                <input type='text' class="form-control" name="materiaDTO.nombreMateria" required maxlength="250"/>
+                            </div>    	
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <div class="form-group">
+                                <label for="facultad">Facultad:</label>
+                                <select class="form-control" name="materiaDTO.idFacultad" id="facultad" onchange="obtenerCarreras();cargo();">
+                                 	<option value=0>Seleccione facultad...</option>
+	            					#foreach($facultadDTO in $listaFacultad)
+	            						<option value=$facultadDTO.idFacultad>$facultadDTO.facultad</option>
+	            					#end
+	            			</select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="carreras">Carrera:</label>
+                                <select class="form-control" name="materiaDTO.idCarrera" id="carreras">
+		            				
+		            			</select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="area">Area:</label>
+                                <select class="form-control" name="materiaDTO.idArea" id="areas">
+                                	 <option value=0>Seleccione area...</option>
+                                	#foreach($materiaDTO in $listaArea)
+	            						<option value=$materiaDTO.idArea>$materiaDTO.area</option>
+	            					#end
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="nucleo">Nucleo:</label>
+                                <select class="form-control" name="materiaDTO.idNucleo" id="nucleo">
+                                 	<option value=0>Seleccione nucleo...</option>
+                                	#foreach($materiaDTO in $listaNucleo)
+	            						<option value=$materiaDTO.idNucleo>$materiaDTO.nucleo</option>
+	            					#end
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="tipo">Tipo:</label>
+                                <select class="form-control" name="materiaDTO.idTipo" id="tipo">
+                                 	<option value=0>Seleccione tipo...</option>
+                                	#foreach($materiaDTO in $listaTipo)
+	            						<option value=$materiaDTO.idTipo>$materiaDTO.tipo</option>
+	            					#end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="creditos totales">Creditos totales:</label>
+                                <input type='text' class="form-control" name="materiaDTO.creditosTotales" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="horas totales">Horas totales:</label>
+                                <input type='text' class="form-control" name="materiaDTO.horasTotales" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="horas teoricas">Horas teoricas:</label>
+                                <input type='text' class="form-control" name="materiaDTO.horasTeoricas" required/>
+                            </div>
+                        </div>
+                       <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="horas practicas">Horas practicas:</label>
+                                <input type='text' class="form-control" name="materiaDTO.horasPracticas" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-sm-3">
+                            <div class="form-group">
+                                <label for="art57">Art 57:</label>
+								<select class="form-control" name="materiaDTO.art57">
+								     <option value="SI">Si</option>
+								     <option value="NO">No</option>
+								</select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="form-group" id="cargo">
+                                <label for="academia">Academia:</label>	
+								<select class="form-control" name="idAcademia" id="academia">
+								     <option value=0>Seleccione academia...</option>
+								</select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-3  col-lg-6 animated bounceInLeft">
+                            <div class="form-group">								
+                                <button type="submit"  class="form-control btn btn-primary">Registrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        #if($mensaje)
+                            <div class="alert alert-danger">
+                                <strong>Fallo!</strong> $mensaje
+                            </div>
+                        #end	
+                        #if($exito)
+                            <div class="alert alert-success">
+                                <strong>Exito!</strong> $exito
+                            </div>
+                        #end
+                        #if($alerta)
+                            <div class="alert alert-danger">
+                                <strong>Fallo!</strong> $alerta
+                            </div>
+                        #end	
+                    </div>
+                  </div>
+	        </div>
+		</div>
+		
+	
+	</div>
+	#include("footer.html")
+</body>
+</html>

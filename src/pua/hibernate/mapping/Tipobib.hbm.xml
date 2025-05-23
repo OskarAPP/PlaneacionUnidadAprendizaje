@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Tipobib" table="tipobib" catalog="pua" optimistic-lock="version">
+        <id name="idTipoBibliografia" type="java.lang.Integer">
+            <column name="id_tipo_bibliografia" />
+            <generator class="identity" />
+        </id>
+        <property name="tipo" type="string">
+            <column name="tipo" length="100" />
+        </property>
+        <set name="bibliografiaPuas" table="bibliografia_pua" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo_bibliografia" />
+            </key>
+            <one-to-many class="pua.hibernate.BibliografiaPua" />
+        </set>
+    </class>
+</hibernate-mapping>

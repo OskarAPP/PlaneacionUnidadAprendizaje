@@ -1,0 +1,26 @@
+#set($contador = 1)
+#foreach($especificaDTO in $listaEspecifica)
+    	<tr>
+                          <th scope="row">$contador</th>
+	                      <td>
+							  <button type="button" class="btn btn-danger" data-toggle="button" 
+								 onclick="eliminarEspecifica($especificaDTO.idEspecifica)" aria-pressed="false">Eliminar
+							  </button>
+	                       </td>
+	                       <td contenteditable="true" id="nombre$especificaDTO.idEspecifica"onblur="actualizarEspecifica($especificaDTO.idEspecifica)">$especificaDTO.perfilEspecifica</td>
+                          <td>
+                          	<select class="btn btn-default" name="carreraDTO.idFacultad" id="carrera$especificaDTO.idEspecifica"
+	                         onchange="actualizarEspecifica($especificaDTO.idEspecifica)">
+	                         	<option value="0">Seleccione una carrera...</option>
+	            					#foreach($carreraDTO in $listaCarrera)
+	            						<option value=$carreraDTO.idCarrera
+	            						#if($carreraDTO.idCarrera==$especificaDTO.idCarrera) selected
+	            						#end
+	            						>$carreraDTO.nombreCarrera</option>
+	            					#end
+	            				</select>
+                          </td>
+        </tr>
+        #set($contador = $contador+1)
+                          #end
+                          

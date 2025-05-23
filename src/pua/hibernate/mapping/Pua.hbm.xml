@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/04/2019 09:38:09 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="pua.hibernate.Pua" table="pua" catalog="pua" optimistic-lock="version">
+        <id name="idPua" type="java.lang.Integer">
+            <column name="id_pua" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="materia" class="pua.hibernate.Materia" fetch="select">
+            <column name="id_materia" />
+        </many-to-one>
+        <property name="acreditacionCompetencias" type="java.lang.Integer">
+            <column name="acreditacion_competencias" />
+        </property>
+        <property name="competenciaUda" type="string">
+            <column name="competencia_uda" length="65535" />
+        </property>
+        <property name="competenciaFormacion" type="string">
+            <column name="competencia_formacion" length="65535" />
+        </property>
+        <property name="planEstudio" type="int">
+            <column name="planEstudio" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="autorizado" type="boolean">
+            <column name="autorizado" not-null="true" />
+        </property>
+        <set name="docentes" table="pua_docente" inverse="true" lazy="true" fetch="select" cascade='all'>
+            <key>
+                <column name="id_pua" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Docente">
+                <column name="id_docente" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="competenciaesps" table="pua_competenciaesp" inverse="false" lazy="true" fetch="select" cascade='all'>
+            <key>
+                <column name="id_pua" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Competenciaesp">
+                <column name="id_especifica" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="perfilprofs" table="perfilprof" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.Perfilprof" />
+        </set>
+        <set name="puaVersions" table="pua_version" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_Pua" not-null="true" />
+            </key>
+            <one-to-many class="pua.hibernate.PuaVersion" />
+        </set>
+        <set name="subcompetencias" table="subcompetencia" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.Subcompetencia" />
+        </set>
+        <set name="evaluacionCompetenciases" table="evaluacion_competencias" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.EvaluacionCompetencias" />
+        </set>
+        <set name="perfildocs" table="perfildoc" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.Perfildoc" />
+        </set>
+        <set name="evaluacionFinals" table="evaluacion_final" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.EvaluacionFinal" />
+        </set>
+        <set name="perfilacads" table="perfilacad" inverse="true" lazy="true" fetch="select" cascade="save-update, delete">
+            <key>
+                <column name="id_pua" />
+            </key>
+            <one-to-many class="pua.hibernate.Perfilacad" />
+        </set>
+        <set name="competenciagens" table="pua_competenciagen" inverse="false" lazy="true" fetch="select" cascade='all'>
+            <key>
+                <column name="id_pua" not-null="true" />
+            </key>
+            <many-to-many entity-name="pua.hibernate.Competenciagen">
+                <column name="id_generica" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

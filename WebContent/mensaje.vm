@@ -1,0 +1,12 @@
+#if($mensajeR == "exito")
+	<div class="alert alert-success msj-box-success alert-dismissable animated jello">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+		¡Correcto!. Se han guardado los cambios
+	</div>
+	
+#elseif($mensajeR == "fallo")
+	<div class="alert alert-danger msj-box-error alert-dismissable animated tada">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+		¡Error!. $mensaje
+	</div>
+#end
