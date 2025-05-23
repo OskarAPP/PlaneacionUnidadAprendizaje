@@ -1,0 +1,74 @@
+Inventario de Vistas y Rutas del Sistema Actual
+
+Directorio: /WebContent/
+
+Vistas principales (.vm y .html):
+- actividades.vm
+- ambientes.vm
+- bibliografia_sub.vm
+- bibliografia.vm
+- carreras.vm
+- criterios.vm
+- docentesPua.vm
+- error.vm
+- especificas.vm
+- evidencias.vm
+- facultades.vm
+- footer.html
+- genericas.vm
+- graficaCarrera.vm
+- graficaEspecifica.vm
+- graficaFacultad.vm
+- imprimirPua.vm
+- index.html
+- login.vm
+- materiales.vm
+- materias.vm
+- mensaje.vm
+- navbar.html
+- navbarDocente.vm
+- panelAcceso.vm
+- perfiles_academicos.vm
+- perfiles_docente.vm
+- perfiles_profesional.vm
+- prueba2.vm
+- pua.vm
+- puaDocentes.vm
+- puafolder.vm
+- reportesEspecifica.vm
+- reportesPrincipal.vm
+- subcompetencias.vm
+- subtemas.vm
+- sweetalert.vm
+- temas.vm
+
+Subcarpeta: /WebContent/administracion/
+- blanco.vm
+- navbar.html
+- academia/ (subvistas)
+- carreras/ (subvistas)
+- comespecifica/ (subvistas)
+- comgenerica/ (subvistas)
+- docentes/ (subvistas)
+- facultad/ (subvistas)
+- materias/ (subvistas)
+
+Subcarpeta: /WebContent/puaVersion/
+- listaPuas.vm
+- listaPuasVersion.vm
+- tablaPuas.vm
+- tablaPuasVersion.vm
+- versionamiento.vm
+
+Otros archivos HTML relevantes:
+- /WebContent/administracion/navbar.html
+- /WebContent/footer.html
+- /WebContent/navbar.html
+- /WebContent/js/tinymce/plugins/example/dialog.html
+
+Notas:
+- Cada archivo .vm corresponde a una vista renderizada por el backend.
+- Las rutas asociadas suelen estar ligadas a acciones como: FormularioEntrada.action, grafica.action, graficaEspecifica.action, PuaVersion.action, etc.
+- Las subcarpetas contienen vistas específicas para administración de entidades (academia, carreras, docentes, etc.).
+
+Este inventario servirá como base para la migración a React y la definición de rutas en el nuevo frontend.
